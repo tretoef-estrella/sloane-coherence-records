@@ -44,12 +44,12 @@ Cohn et al. had held the record for `(4, 64)` hlc for over a decade. The standar
 - **[`RESULTS.md`](RESULTS.md)** — Headline numbers, bounds comparison, gap analysis.
 - **[`RECORDS.md`](RECORDS.md)** — Raw verifier outputs for both packings.
 - **[`METHODOLOGY.md`](METHODOLOGY.md)** — High-level description of the approach (full engine source code reserved; see *Licensing and engine availability* below).
-- **[`GUIDE.md`](GUIDE.md)** — For non-mathematicians: what a Grassmannian packing is and why people care.
+- **[`GUIDE FOR EVERYONE.md`](GUIDE%20FOR%20EVERYONE.md)** — For non-mathematicians: what a Grassmannian packing is and why people care.
 - **[`CITATION.cff`](CITATION.cff)** — How to cite this work.
-- **[`paper/PAPER_SLOANE_v15.md`](paper/PAPER_SLOANE_v15.md)** — Full technical paper covering both records, exploration history, and the structural findings about the basin landscape.
-- **[`records/4x64_record1.txt`](records/4x64_record1.txt)** and **[`records/4x64_record2.txt`](records/4x64_record2.txt)** — Both packings, in standard Game of Sloanes file format (2·d·n floating-point values: 4·64 real parts followed by 4·64 imaginary parts).
-- **[`records/run_record1.log`](records/run_record1.log)** and **[`records/run_record2.log`](records/run_record2.log)** — Complete Mac runtime logs, step by step.
-- **[`verification/verify_sloane_independent.py`](verification/verify_sloane_independent.py)** — Independent Python verifier with its own clean-room kernel. Reproduces both coherence values to machine precision.
+- **[`Paper sloane v15 public .md`](Paper%20sloane%20v15%20public%20.md)** — Full technical paper covering both records, exploration history, and the structural findings about the basin landscape.
+- **[`4x64_record1.txt`](4x64_record1.txt)** and **[`4x64_record2.txt`](4x64_record2.txt)** — Both packings, in standard Game of Sloanes file format (2·d·n floating-point values: 4·64 real parts followed by 4·64 imaginary parts).
+- **[`run_record1.log`](run_record1.log)** and **[`run_record2.log`](run_record2.log)** — Complete Mac runtime logs, step by step.
+- **[`verify_sloane_independent.py`](verify_sloane_independent.py)** — Independent Python verifier with its own clean-room kernel. Reproduces both coherence values to machine precision.
 
 ---
 
@@ -58,8 +58,8 @@ Cohn et al. had held the record for `(4, 64)` hlc for over a decade. The standar
 ```bash
 git clone https://github.com/tretoef-estrella/sloane-coherence-records.git
 cd sloane-coherence-records
-python3 verification/verify_sloane_independent.py records/4x64_record1.txt
-python3 verification/verify_sloane_independent.py records/4x64_record2.txt
+python3 verify_sloane_independent.py 4x64_record1.txt
+python3 verify_sloane_independent.py 4x64_record2.txt
 ```
 
 Expected output for record #2:
@@ -95,7 +95,7 @@ The high-level methodology is described in [`METHODOLOGY.md`](METHODOLOGY.md) at
 
 ## Contact
 
-Rafael Amichis Luengo · Madrid · independent researcher. email: tretoef@gmail.com
+Rafael Amichis Luengo · Madrid · independent researcher
 
 For research collaborations, licensing inquiries, or to discuss the methodology in depth, please open a GitHub issue or contact via the email listed on this account's GitHub profile.
 
