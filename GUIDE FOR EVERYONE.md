@@ -76,6 +76,6 @@ The records will be submitted to the public *Game of Sloanes* reference reposito
 - The headline numbers and bounds comparison are in [`RESULTS.md`](RESULTS.md).
 - The independent verifier output is in [`RECORDS.md`](RECORDS.md).
 - A higher-level technical description (without giving away the engine internals) is in [`METHODOLOGY.md`](METHODOLOGY.md).
-- The full technical paper, with all the sandbox-exploration history and structural findings, is in [`paper/PAPER_SLOANE_v15.md`](paper/PAPER_SLOANE_v15.md).
+- The full technical paper, with all the sandbox-exploration history and structural findings, is in [`Paper sloane v15 public .md`](Paper%20sloane%20v15%20public%20.md).
 
 Thank you for reading. If you are a mathematician and want to discuss this in depth, open an issue on this GitHub repository or reach out to the author directly.
