@@ -24,7 +24,7 @@
 ```bash
 git clone https://github.com/tretoef-estrella/sloane-coherence-records.git
 cd sloane-coherence-records
-python3 verification/verify_sloane_independent.py records/4x64_record2.txt
+python3 verify_sloane_independent.py 4x64_record2.txt
 ```
 
 **Expected output (will print exactly this, on any machine with Python 3 + NumPy):**
@@ -65,7 +65,7 @@ The probability that all five share a common bug producing identical incorrect o
 
 ## What does the record file actually contain?
 
-The file `records/4x64_record2.txt` contains exactly **512 floating-point numbers**, one per line, with 18 significant digits each. These are:
+The file `4x64_record2.txt` contains exactly **512 floating-point numbers**, one per line, with 18 significant digits each. These are:
 
 - Lines 1–256: real parts of 64 vectors in ℂ⁴, organised as `Re(v_1[0])`, `Re(v_1[1])`, `Re(v_1[2])`, `Re(v_1[3])`, `Re(v_2[0])`, ..., `Re(v_64[3])`.
 - Lines 257–512: imaginary parts in the same order.
