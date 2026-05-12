@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+title: "Two world records in Grassmannian coherence packings (d=4, n=64) hlc"
+message: "If you use these records or this work, please cite as below."
+type: dataset
+authors:
+  - family-names: "Amichis Luengo"
+    given-names: "Rafael"
+    affiliation: "Independent researcher, Madrid, Spain"
+date-released: 2026-05-12
+version: "1.0"
+url: "https://github.com/tretoef-estrella/sloane-coherence-records"
+abstract: >
+  Two world records in the minimum-coherence packing of 64 unit vectors in
+  complex 4-dimensional space (Grassmannian coherence packing problem,
+  cell d=4, n=64, holographic-line case "hlc") were established on
+  May 12, 2026. The previous record (Cohn et al., coherence
+  0.687160201509307) had stood for over a decade. The first new record
+  (coherence 0.687040494471422, gap -1.197e-04 vs. Cohn) was obtained in
+  the afternoon. The second record (coherence 0.687035170223597, gap
+  -1.250e-04 vs. Cohn, i.e. an improvement of 0.0182%) was obtained the
+  same evening from a structurally distinct basin. Both packings were
+  verified byte-exact by five independent kernels and an independent
+  Python verifier (included in this repository). The work was carried out
+  on a Mac M2 single-threaded at 25% CPU, in collaboration with the AI
+  assistant Claude (Anthropic), using a novel optimisation paradigm
+  combining Riemannian gradient flow over a smoothed-max coherence loss
+  with a structure-aware warmstart strategy.
+keywords:
+  - Grassmannian packing
+  - coherence
+  - frame theory
+  - equiangular tight frame
+  - compressed sensing
+  - MIMO precoding
+  - CDMA codes
+  - quantum state tomography
+license: MIT
+
+preferred-citation:
+  type: misc
+  title: "Two world records in Grassmannian coherence packings (d=4, n=64) hlc"
+  authors:
+    - family-names: "Amichis Luengo"
+      given-names: "Rafael"
+      affiliation: "Independent researcher, Madrid, Spain"
+  year: 2026
+  month: 5
+  url: "https://github.com/tretoef-estrella/sloane-coherence-records"
+  notes: >
+    Coherence records: 0.687040494471422 (record #1) and
+    0.687035170223597 (record #2). Both records verified byte-exact.
