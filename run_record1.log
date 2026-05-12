@@ -1,0 +1,97 @@
+============================================================
+Engine 9 — aquilestrincaestacasvaaporhectorelresacas
+Target (d=4, n=64) hlc Cohn = 0.6871602015093070
+============================================================
+CONFIG:
+  MAX_STEPS    = 10000000
+  warmstart    = satellite1.txt
+  seed         = 1
+  beta_min     = 5.000000e+01
+  beta_max     = 1.000000e+08
+  alpha_init   = 1.000000e-02
+  rho (mom)    = 0.6000
+  log_every    = 250000
+  output       = aquile_sat1_best.txt
+============================================================
+Loaded warmstart from satellite1.txt
+Initial mu = 0.7189336320526634  (gap_Cohn = +3.177343e-02)
+step          1 | mu=0.7188541998808763 | best=0.7188541998808763 | gap=+3.169400e-02 | beta=5.00e+01 | alpha=1.00e-02 | 7K steps/s | last_imp@0
+step     250000 | mu=0.6974007821359216 | best=0.6974007821359216 | gap=+1.024058e-02 | beta=7.19e+01 | alpha=1.38e-04 | 29K steps/s | last_imp@249999
+step     500000 | mu=0.6945979754705170 | best=0.6945979754705170 | gap=+7.437774e-03 | beta=1.03e+02 | alpha=1.38e-04 | 29K steps/s | last_imp@499999
+step     750000 | mu=0.6921491377734857 | best=0.6921491377734857 | gap=+4.988936e-03 | beta=1.48e+02 | alpha=1.38e-04 | 29K steps/s | last_imp@749999
+step    1000000 | mu=0.6906092030613930 | best=0.6906092030613930 | gap=+3.449002e-03 | beta=2.13e+02 | alpha=1.38e-04 | 29K steps/s | last_imp@999999
+step    1250000 | mu=0.6896543398917707 | best=0.6896543398917707 | gap=+2.494138e-03 | beta=3.07e+02 | alpha=1.38e-04 | 29K steps/s | last_imp@1249999
+step    1500000 | mu=0.6890138051247531 | best=0.6890138051247531 | gap=+1.853604e-03 | beta=4.41e+02 | alpha=1.38e-04 | 29K steps/s | last_imp@1499999
+step    1750000 | mu=0.6885293711952546 | best=0.6885293711952546 | gap=+1.369170e-03 | beta=6.33e+02 | alpha=1.38e-04 | 29K steps/s | last_imp@1749999
+step    2000000 | mu=0.6881781748689851 | best=0.6881781748689851 | gap=+1.017973e-03 | beta=9.10e+02 | alpha=1.38e-04 | 29K steps/s | last_imp@1999999
+step    2250000 | mu=0.6877509464655307 | best=0.6877509464655307 | gap=+5.907450e-04 | beta=1.31e+03 | alpha=1.38e-04 | 29K steps/s | last_imp@2249999
+step    2500000 | mu=0.6874529713823376 | best=0.6874529713823376 | gap=+2.927699e-04 | beta=1.88e+03 | alpha=1.38e-04 | 29K steps/s | last_imp@2499999
+step    2750000 | mu=0.6873273359943031 | best=0.6873273359943031 | gap=+1.671345e-04 | beta=2.70e+03 | alpha=1.38e-04 | 29K steps/s | last_imp@2749999
+step    3000000 | mu=0.6872414157735633 | best=0.6872414157735633 | gap=+8.121426e-05 | beta=3.88e+03 | alpha=1.38e-04 | 30K steps/s | last_imp@2999999
+step    3250000 | mu=0.6871797430723772 | best=0.6871797430723772 | gap=+1.954156e-05 | beta=5.58e+03 | alpha=1.38e-04 | 30K steps/s | last_imp@3249999
+step    3500000 | mu=0.6871386120573113 | best=0.6871386120573113 | gap=-2.158945e-05 | beta=8.02e+03 | alpha=1.38e-04 | 31K steps/s | last_imp@3499999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6871386120573113 < 0.6871602015093070 ***
+step    3750000 | mu=0.6871097775383694 | best=0.6871097775383694 | gap=-5.042397e-05 | beta=1.15e+04 | alpha=1.38e-04 | 31K steps/s | last_imp@3749999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6871097775383694 < 0.6871602015093070 ***
+step    4000000 | mu=0.6870885800666223 | best=0.6870885800666223 | gap=-7.162144e-05 | beta=1.66e+04 | alpha=1.38e-04 | 32K steps/s | last_imp@3999999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870885800666223 < 0.6871602015093070 ***
+step    4250000 | mu=0.6870744054880999 | best=0.6870744054880999 | gap=-8.579602e-05 | beta=2.38e+04 | alpha=1.38e-04 | 32K steps/s | last_imp@4249999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870744054880999 < 0.6871602015093070 ***
+step    4500000 | mu=0.6870644385041134 | best=0.6870644385041134 | gap=-9.576301e-05 | beta=3.42e+04 | alpha=1.38e-04 | 32K steps/s | last_imp@4499999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870644385041134 < 0.6871602015093070 ***
+step    4750000 | mu=0.6870571226358606 | best=0.6870571226358606 | gap=-1.030789e-04 | beta=4.92e+04 | alpha=1.38e-04 | 33K steps/s | last_imp@4749999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870571226358606 < 0.6871602015093070 ***
+step    5000000 | mu=0.6870521319959770 | best=0.6870521319959770 | gap=-1.080695e-04 | beta=7.07e+04 | alpha=1.38e-04 | 33K steps/s | last_imp@4999999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870521319959770 < 0.6871602015093070 ***
+step    5250000 | mu=0.6870486460425766 | best=0.6870486460425766 | gap=-1.115555e-04 | beta=1.02e+05 | alpha=1.38e-04 | 34K steps/s | last_imp@5249999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870486460425766 < 0.6871602015093070 ***
+step    5500000 | mu=0.6870461875121219 | best=0.6870461875121219 | gap=-1.140140e-04 | beta=1.46e+05 | alpha=1.38e-04 | 34K steps/s | last_imp@5499999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870461875121219 < 0.6871602015093070 ***
+step    5750000 | mu=0.6870444501319771 | best=0.6870444501319771 | gap=-1.157514e-04 | beta=2.10e+05 | alpha=1.38e-04 | 34K steps/s | last_imp@5749999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870444501319771 < 0.6871602015093070 ***
+step    6000000 | mu=0.6870432426311993 | best=0.6870432426311993 | gap=-1.169589e-04 | beta=3.02e+05 | alpha=1.38e-04 | 34K steps/s | last_imp@5999999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870432426311993 < 0.6871602015093070 ***
+step    6250000 | mu=0.6870424047816985 | best=0.6870424047816985 | gap=-1.177967e-04 | beta=4.34e+05 | alpha=1.38e-04 | 35K steps/s | last_imp@6249999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870424047816985 < 0.6871602015093070 ***
+step    6500000 | mu=0.6870418225744745 | best=0.6870418225744745 | gap=-1.183789e-04 | beta=6.23e+05 | alpha=1.38e-04 | 35K steps/s | last_imp@6499999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870418225744745 < 0.6871602015093070 ***
+step    6750000 | mu=0.6870414183108933 | best=0.6870414183108933 | gap=-1.187832e-04 | beta=8.96e+05 | alpha=2.33e-05 | 35K steps/s | last_imp@6749999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870414183108933 < 0.6871602015093070 ***
+step    7000000 | mu=0.6870411366206767 | best=0.6870411366206767 | gap=-1.190649e-04 | beta=1.29e+06 | alpha=2.33e-05 | 35K steps/s | last_imp@6999999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870411366206767 < 0.6871602015093070 ***
+step    7250000 | mu=0.6870409399724684 | best=0.6870409399724684 | gap=-1.192615e-04 | beta=1.85e+06 | alpha=2.33e-05 | 36K steps/s | last_imp@7249999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870409399724684 < 0.6871602015093070 ***
+step    7500000 | mu=0.6870408017345783 | best=0.6870408017345783 | gap=-1.193998e-04 | beta=2.66e+06 | alpha=2.33e-05 | 36K steps/s | last_imp@7499999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870408017345783 < 0.6871602015093070 ***
+step    7750000 | mu=0.6870407054747545 | best=0.6870407054747545 | gap=-1.194960e-04 | beta=3.82e+06 | alpha=2.33e-05 | 36K steps/s | last_imp@7749999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870407054747545 < 0.6871602015093070 ***
+step    8000000 | mu=0.6870406391476941 | best=0.6870406391476941 | gap=-1.195624e-04 | beta=5.49e+06 | alpha=3.91e-06 | 36K steps/s | last_imp@7999999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870406391476941 < 0.6871602015093070 ***
+step    8250000 | mu=0.6870405925504393 | best=0.6870405925504393 | gap=-1.196090e-04 | beta=7.89e+06 | alpha=3.91e-06 | 36K steps/s | last_imp@8249999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870405925504393 < 0.6871602015093070 ***
+step    8500000 | mu=0.6870405600603271 | best=0.6870405600603271 | gap=-1.196414e-04 | beta=1.13e+07 | alpha=3.91e-06 | 36K steps/s | last_imp@8499999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870405600603271 < 0.6871602015093070 ***
+step    8750000 | mu=0.6870405375000104 | best=0.6870405375000104 | gap=-1.196640e-04 | beta=1.63e+07 | alpha=3.91e-06 | 37K steps/s | last_imp@8749999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870405375000104 < 0.6871602015093070 ***
+step    9000000 | mu=0.6870405218611935 | best=0.6870405218611935 | gap=-1.196796e-04 | beta=2.34e+07 | alpha=6.57e-07 | 37K steps/s | last_imp@8999999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870405218611935 < 0.6871602015093070 ***
+step    9250000 | mu=0.6870405110315195 | best=0.6870405110315195 | gap=-1.196905e-04 | beta=3.37e+07 | alpha=6.57e-07 | 37K steps/s | last_imp@9249999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870405110315195 < 0.6871602015093070 ***
+step    9500000 | mu=0.6870405034389125 | best=0.6870405034389125 | gap=-1.196981e-04 | beta=4.84e+07 | alpha=6.57e-07 | 37K steps/s | last_imp@9499999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870405034389125 < 0.6871602015093070 ***
+step    9750000 | mu=0.6870404981470646 | best=0.6870404981470646 | gap=-1.197034e-04 | beta=6.96e+07 | alpha=6.57e-07 | 37K steps/s | last_imp@9749999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870404981470646 < 0.6871602015093070 ***
+step   10000000 | mu=0.6870404944714217 | best=0.6870404944714217 | gap=-1.197070e-04 | beta=1.00e+08 | alpha=6.57e-07 | 37K steps/s | last_imp@9999999
+*** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870404944714217 < 0.6871602015093070 ***
+============================================================
+FINAL: best_mu = 0.6870404944714217
+       gap_Cohn = -1.197070e-04
+       init_mu  = 0.7189336320526634 (drop = 3.189314e-02)
+*** RECORD CANDIDATE: best_mu < Cohn byte-exact ***
+D190 STRUCTURAL: PASS
+D190 FINAL_VERIFY: mu_rebuilt = 0.6870404944714217 (delta best = +0.00e+00) PASS
+Saved best packing -> aquile_sat1_best.txt
+D190 ROUNDTRIP: mu_reload = 0.6870404944714217 (delta best = +0.00e+00) PASS
+============================================================
+If RECORD: run verify_sloane_independent.py for D190 INDEPENDENT (4/4)
+============================================================
