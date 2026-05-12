@@ -48,9 +48,9 @@ The relative improvement looks small in this ratio because the gap to the Welch 
 
 ## Verification timestamps
 
-Both records were verified using `verification/verify_sloane_independent.py` on the day of discovery.
+Both records were verified using `verify_sloane_independent.py` on the day of discovery.
 
-**Record #1 verifier output (record file: `records/4x64_record1.txt`):**
+**Record #1 verifier output (record file: `4x64_record1.txt`):**
 ```
 Parsed 64 vectors of dimension 4 (C^4).
 Unit-norm check: max deviation = ~2e-16 (machine epsilon)
@@ -60,7 +60,7 @@ Coherence mu(Phi) = 0.687040494471422
 Worst pair: vectors (31, 38) with |<v_31, v_38>| = 0.687040494471422
 ```
 
-**Record #2 verifier output (record file: `records/4x64_record2.txt`):**
+**Record #2 verifier output (record file: `4x64_record2.txt`):**
 ```
 Parsed 64 vectors of dimension 4 (C^4).
 Unit-norm check: max deviation = 2.22e-16 at vector index 20
@@ -91,6 +91,6 @@ Five entirely independent code paths, two different programming languages, three
 
 ## What's next
 
-This repository documents two records on a single day. The full technical paper (`paper/PAPER_SLOANE_v15.md`) describes the sandbox-exploration probes that were run after record #2 (termites, rats, bats, mercury, vanilla-Adam) to determine whether a third record was accessible by local refinement of the same basin. The answer turned out to be no: the second record is a *strong local minimum* of the optimisation paradigm used. A third record would require a structurally distinct starting basin (yet to be Mac-tested) or a qualitatively new algorithmic approach (likely a non-local technique such as a semidefinite-programming relaxation or an algebraic construction). Those investigations are reserved for a future session.
+This repository documents two records on a single day. The full technical paper (`Paper sloane v15 public .md`) describes the sandbox-exploration probes that were run after record #2 (termites, rats, bats, mercury, vanilla-Adam) to determine whether a third record was accessible by local refinement of the same basin. The answer turned out to be no: the second record is a *strong local minimum* of the optimisation paradigm used. A third record would require a structurally distinct starting basin (yet to be Mac-tested) or a qualitatively new algorithmic approach (likely a non-local technique such as a semidefinite-programming relaxation or an algebraic construction). Those investigations are reserved for a future session.
 
 Both records will be submitted via pull request to the public *Game of Sloanes* repository.
