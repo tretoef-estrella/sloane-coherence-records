@@ -1,8 +1,8 @@
 # Records — raw verifier outputs
 
 > Both records, with full verifier output. The packings themselves are in
-> `records/4x64_record1.txt` and `records/4x64_record2.txt`. The verifier
-> script is in `verification/verify_sloane_independent.py`. To reproduce
+> `4x64_record1.txt` and `4x64_record2.txt`. The verifier
+> script is in `verify_sloane_independent.py`. To reproduce
 > the outputs below, see *Reproducing the verification* at the end of this
 > document.
 
@@ -45,7 +45,7 @@ Gap above Welch (percent): 40.8054%
 ```
 
 ### Engine runtime log (Mac M2, single-threaded, 25% CPU)
-The full step-by-step log is in `records/run_record1.log`. Selected milestones:
+The full step-by-step log is in `run_record1.log`. Selected milestones:
 ```
 Initial mu = 0.7189336320526634  (random warmstart selected from sandbox)
 step  250,000: μ = 0.6973966802...
@@ -108,7 +108,7 @@ Verification complete.
 ```
 
 ### Engine runtime log (Mac M2, single-threaded, 25% CPU)
-The full step-by-step log is in `records/run_record2.log`. Selected milestones:
+The full step-by-step log is in `run_record2.log`. Selected milestones:
 ```
 Initial mu = 0.7031708385306132  (warmstart from sandbox-discovered basin)
 step  250,000: μ = 0.6966816005...
@@ -129,7 +129,7 @@ Total runtime: approximately 5.5 hours.
 | Kernel | Reported coherence | Δ vs. record #2 |
 |:---|:---|:---|
 | Engine 9 (C++) — internal `D190 FINAL_VERIFY` | `0.6870351702235971` | 0 |
-| `verification/verify_sloane_independent.py` (Python, clean-room kernel) | `0.687035170223597` (15-digit display) | 0 |
+| `verify_sloane_independent.py` (Python, clean-room kernel) | `0.687035170223597` (15-digit display) | 0 |
 | Sandbox kernel 1 — NumPy BLAS `conj().T @ V` matrix multiplication | `0.6870351702235971` | 0 |
 | Sandbox kernel 2 — pure-Python double `for` loop, no NumPy involved | `0.6870351702235971` | 0 |
 | Sandbox kernel 3 — `np.vdot(V[i], V[j])` per pair, LAPACK | `0.6870351702235971` | 0 |
@@ -146,10 +146,10 @@ git clone https://github.com/tretoef-estrella/sloane-coherence-records.git
 cd sloane-coherence-records
 
 # Verify record #1
-python3 verification/verify_sloane_independent.py records/4x64_record1.txt
+python3 verify_sloane_independent.py 4x64_record1.txt
 
 # Verify record #2
-python3 verification/verify_sloane_independent.py records/4x64_record2.txt
+python3 verify_sloane_independent.py 4x64_record2.txt
 ```
 
 The verifier requires Python 3 and NumPy. It reads the packing as plain text (`2 · d · n = 512` floating-point values, one per line, real parts first), reconstructs the configuration, performs the unit-norm check, computes the Gram matrix, and reports the coherence and the worst pair. **Both records reproduce byte-exact on any standard Linux, macOS, or Windows machine.**
