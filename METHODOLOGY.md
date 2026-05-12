@@ -57,7 +57,7 @@ A coherence record is only useful if it is reproducible by an independent observ
 - **Triple-kernel sandbox cross-check.** Beyond the engine's own three internal checks, three additional kernels are run in the Python sandbox: (a) NumPy BLAS `conj().T @ V` matrix multiplication; (b) a pure-Python double loop computing each inner product manually, with no NumPy involvement; (c) `np.vdot(V[i], V[j])` per pair using LAPACK. All three are written from scratch and use different code paths.
 - **Worst-pair byte-exact cross-validation.** The indices `(i, j)` of the worst pair are required to agree across all five code paths. This is a non-trivial check: a bug that produced the right numerical coherence value by mistake would almost certainly identify a different worst pair.
 
-The full output of the four-step verification on both records is included in [`RECORDS.md`](RECORDS.md). The Python verifier (`verification/verify_sloane_independent.py`) is included in this repository and can be run on any machine with Python 3 and NumPy.
+The full output of the four-step verification on both records is included in [`RECORDS.md`](RECORDS.md). The Python verifier (`verify_sloane_independent.py`) is included in this repository and can be run on any machine with Python 3 and NumPy.
 
 ---
 
@@ -85,7 +85,7 @@ The methodology generalises to other cells — at least, we have reason to belie
 
 ## 7. What the paper covers
 
-The technical paper [`paper/PAPER_SLOANE_v15.md`](paper/PAPER_SLOANE_v15.md) contains:
+The technical paper [`Paper sloane v15 public .md`](Paper%20sloane%20v15%20public%20.md) contains:
 
 - The detailed history of both records, with byte-exact step-by-step Mac logs.
 - Six post-record sandbox exploration probes (termite, rat, bat-echo, mercury, vanilla-Adam, and a hub-vertex variant), all of which **refuted** the hypothesis that a third record was accessible by local refinement of the second-record basin.
