@@ -105,7 +105,7 @@ A: We tried this on purpose during development. Every kind of wrong computation 
 **Q: "Maybe the comparison to Cohn is unfair (different file format, different convention)."**
 A: We use the exact file format and the exact coherence definition used by *Game of Sloanes*. The Cohn packing file `4x64_hlc.txt`, when run through our verifier, returns `0.687160201509307` — matching the published value. So the comparison is apples to apples.
 
-**Q: "Five hours of optimisation on a Mac M2 is not enough compute to beat a 14-year-old record."**
+**Q: "Five minutes of optimisation on a Mac M2 is not enough compute to beat a 14-year-old record."**
 A: It's not the compute. It's the algorithm + the warmstart strategy. The full technical paper documents what other approaches (vanilla Adam, mercury / Riemannian trust-region, hub-vertex perturbation, full-random rats, bat-echo profiling) failed to do — even given the record packing as a starting point. The methodology really is different. The paper explains why.
 
 ---
