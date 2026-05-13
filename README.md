@@ -110,7 +110,7 @@ The high-level methodology is described in [`METHODOLOGY.md`](METHODOLOGY.md) at
 
 ## Contact
 
-Rafael Amichis Luengo · Madrid · independent researcher
+Rafael Amichis Luengo · Madrid · independent researcher. email: tretoef@gmail.com
 
 For research collaborations, licensing inquiries, or to discuss the methodology in depth, please open a GitHub issue or contact via the email listed on this account's GitHub profile.
 
