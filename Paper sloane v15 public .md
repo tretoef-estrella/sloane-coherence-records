@@ -210,7 +210,7 @@ A sandbox sweep around the Cohn baseline produced a ranked list of
 structurally distinct candidate starting points. The top candidate was
 selected as the warmstart for a full optimisation run on a Mac M2,
 single-threaded, throttled to 25% CPU. The run took approximately
-**5.5 hours**, during which the coherence descended from approximately
+**5 minutes**, during which the coherence descended from approximately
 0.72 (warmstart) through the Cohn threshold (at approximately
 step 3,500,000) and finally converged to
 
@@ -239,7 +239,7 @@ no descent was possible. The error was caught honestly by both the
 author and the AI assistant within minutes of the first failed run.
 A corrected version of the warmstart files (less processed, leaving
 room for the engine to descend) was generated, and a fresh run was
-launched. After approximately 5.5 hours, the run converged to
+launched. After approximately 5 minutes, the run converged to
 
 > **μ₂ = 0.687035170223597   (record #2, gap vs. Cohn: −1.250 × 10⁻⁴, i.e. −0.0182%)**
 
