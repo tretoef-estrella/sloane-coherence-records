@@ -63,7 +63,7 @@ The full output of the four-step verification on both records is included in [`R
 
 ## 5. Engineering notes
 
-The engine is written in C++17, compiles with `g++ -O3 -march=native -std=c++17 -funroll-loops`, and runs on a single thread of an Apple M2 chip at 25% CPU throttle (via `taskpolicy -c utility`). The runtime for a full 10-million-step run is approximately 5.5 hours. Each step is dominated by the recomputation of the Gram matrix and the smoothed-max gradient — `O(N² · d)` for the inner products plus `O(N²)` for the softmax weights — implemented with a flat-array `cdouble {double re; double im;}` POD type for cache friendliness. The memory footprint is trivial (kilobytes).
+The engine is written in C++17, compiles with `g++ -O3 -march=native -std=c++17 -funroll-loops`, and runs on a single thread of an Apple M2 chip at 25% CPU throttle (via `taskpolicy -c utility`). The runtime for a full 10-million-step run is approximately 5 minutes (verified at 5 min 0.42 sec on Mac M2 single-thread at 25% CPU throttle, May 13, 2026 re-execution; throughput approximately 33 000 steps per second). Each step is dominated by the recomputation of the Gram matrix and the smoothed-max gradient — `O(N² · d)` for the inner products plus `O(N²)` for the softmax weights — implemented with a flat-array `cdouble {double re; double im;}` POD type for cache friendliness. The memory footprint is trivial (kilobytes).
 
 The engine accepts CLI arguments for `MAX_STEPS`, `--warmstart=<file.txt>`, `--seed=<int>`, and beta-schedule and learning-rate parameters. Output is in the standard *Game of Sloanes* format: `2·d·N` floating-point values (real parts of all coordinates first, then imaginary parts), one per line.
 
