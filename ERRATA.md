@@ -45,13 +45,12 @@ If anything, the corrected runtime **strengthens** the story: the optimisation e
 The following files in this repository were updated to replace the incorrect "5.5 hours" wording with "approximately 5 minutes" or equivalent precise wording:
 
 - `README.md`
-- `RESULTS.md`
 - `RECORDS.md`
-- `GUIDE FOR EVERYONE.md`
 - `PROOF.md`
-- `WITNESS.md`
 - `Paper sloane v15 public .md`
 - `METHODOLOGY.md`
+
+(Other files in the repository — `RESULTS.md`, `WITNESS.md`, `GUIDE FOR EVERYONE.md` — did not contain the incorrect figure and required no edit.)
 
 The commits for each correction are visible in the repository commit history dated May 13, 2026.
 
