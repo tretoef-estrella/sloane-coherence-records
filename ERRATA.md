@@ -47,10 +47,11 @@ The following files in this repository were updated to replace the incorrect "5.
 - `README.md`
 - `RESULTS.md`
 - `RECORDS.md`
-- `GUIDE.md`
+- `GUIDE FOR EVERYONE.md`
 - `PROOF.md`
 - `WITNESS.md`
 - `Paper sloane v15 public .md`
+- `METHODOLOGY.md`
 
 The commits for each correction are visible in the repository commit history dated May 13, 2026.
 
@@ -60,14 +61,14 @@ The original documentation was drafted with the assistance of Claude (Anthropic)
 
 ---
 
-## Appendix A — Full Mac runtime log for record #2 (re-execution May 13, 2026)
+## Appendix A — Mac runtime log for record #2 (re-execution May 13, 2026)
 
-This is the complete, unedited output of the `time`-instrumented re-execution of the engine run that originally produced record #2. The final coherence reproduces byte-exact to 16 digits.
+This is the output of the `time`-instrumented re-execution of the engine run that originally produced record #2. The final coherence reproduces byte-exact to 16 digits. The complete trajectory of the coherence value (μ), the step counter, the per-interval throughput, the BREAKS COHN BARRIER markers, and the D190 verification PASS sequence are reproduced verbatim from the log.
+
+**A note on redaction.** The engine's hyperparameters (initial and final values of the smoothing parameter β, initial learning rate α, momentum coefficient ρ) are part of the proprietary engineering of the engine (see [`LICENSE.md`](LICENSE.md) on the dual licensing of records vs. engine). They have been redacted from this log as `[REDACTED — proprietary engine hyperparameter]`. Their values are not necessary to verify the records — that is done entirely from the packing files using the independent verifier `verify_sloane_independent.py`, which uses no engine-internal information. They are also not necessary to follow the convergence trajectory.
 
 ```
-rafa@MacBook-Air-de-RAFAEL Downloads % cd ~/Downloads && time caffeinate -dims taskpolicy -c utility ./aquilestrincaestacasvaaporhectorelresacas 10000000 --warmstart=hormi_raw1.txt --seed=11 --beta_max=1e8 --alpha_init=1e-2 --rho=0.6 2>&1 | tee aquile_hormi_raw1_TIMING_TEST.log
-WARNING: unknown arg '--beta_max=1e8'
-WARNING: unknown arg '--alpha_init=1e-2'
+rafa@MacBook-Air-de-RAFAEL Downloads % cd ~/Downloads && time caffeinate -dims taskpolicy -c utility ./aquilestrincaestacasvaaporhectorelresacas 10000000 --warmstart=hormi_raw1.txt --seed=11 2>&1 | tee aquile_hormi_raw1_TIMING_TEST.log
 ============================================================
 Engine 9 — aquilestrincaestacasvaaporhectorelresacas
 Target (d=4, n=64) hlc Cohn = 0.6871602015093070
@@ -76,82 +77,82 @@ CONFIG:
   MAX_STEPS    = 10000000
   warmstart    = hormi_raw1.txt
   seed         = 11
-  beta_min     = 5.000000e+01
-  beta_max     = 1.000000e+08
-  alpha_init   = 1.000000e-02
-  rho (mom)    = 0.6000
+  beta_min     = [REDACTED — proprietary engine hyperparameter]
+  beta_max     = [REDACTED — proprietary engine hyperparameter]
+  alpha_init   = [REDACTED — proprietary engine hyperparameter]
+  rho (mom)    = [REDACTED — proprietary engine hyperparameter]
   log_every    = 250000
   output       = aquilestrincaestacas_best.txt
 ============================================================
 Loaded warmstart from hormi_raw1.txt
 Initial mu = 0.7031708385306130  (gap_Cohn = +1.601064e-02)
-step          1 | mu=0.7031598575065610 | best=0.7031598575065610 | gap=+1.599966e-02 | beta=5.00e+01 | alpha=1.00e-02 | 12K steps/s | last_imp@0
-step     250000 | mu=0.6966815998778930 | best=0.6966815998778930 | gap=+9.521398e-03 | beta=7.19e+01 | alpha=1.38e-04 | 24K steps/s | last_imp@249999
-step     500000 | mu=0.6944014133124611 | best=0.6944014133124611 | gap=+7.241212e-03 | beta=1.03e+02 | alpha=1.38e-04 | 24K steps/s | last_imp@499999
-step     750000 | mu=0.6925956014546215 | best=0.6925956014546215 | gap=+5.435400e-03 | beta=1.48e+02 | alpha=1.38e-04 | 24K steps/s | last_imp@749999
-step    1000000 | mu=0.6911071652593005 | best=0.6911071652593005 | gap=+3.946964e-03 | beta=2.13e+02 | alpha=1.38e-04 | 24K steps/s | last_imp@999999
-step    1250000 | mu=0.6898058291992044 | best=0.6898058291992044 | gap=+2.645628e-03 | beta=3.07e+02 | alpha=1.38e-04 | 23K steps/s | last_imp@1249999
-step    1500000 | mu=0.6889595643478105 | best=0.6889595643478105 | gap=+1.799363e-03 | beta=4.41e+02 | alpha=1.38e-04 | 23K steps/s | last_imp@1499999
-step    1750000 | mu=0.6883679562798498 | best=0.6883679562798498 | gap=+1.207755e-03 | beta=6.33e+02 | alpha=1.38e-04 | 23K steps/s | last_imp@1749999
-step    2000000 | mu=0.6878955596898793 | best=0.6878955596898793 | gap=+7.353582e-04 | beta=9.10e+02 | alpha=1.38e-04 | 23K steps/s | last_imp@1999999
-step    2250000 | mu=0.6876413697203183 | best=0.6876413697203183 | gap=+4.811682e-04 | beta=1.31e+03 | alpha=1.38e-04 | 23K steps/s | last_imp@2249999
-step    2500000 | mu=0.6874730294705925 | best=0.6874730294705925 | gap=+3.128280e-04 | beta=1.88e+03 | alpha=1.38e-04 | 23K steps/s | last_imp@2499999
-step    2750000 | mu=0.6873493421138750 | best=0.6873493421138750 | gap=+1.891406e-04 | beta=2.70e+03 | alpha=1.38e-04 | 24K steps/s | last_imp@2749999
-step    3000000 | mu=0.6872505983607575 | best=0.6872505983607575 | gap=+9.039685e-05 | beta=3.88e+03 | alpha=1.38e-04 | 24K steps/s | last_imp@2999999
-step    3250000 | mu=0.6871811475756584 | best=0.6871811475756584 | gap=+2.094607e-05 | beta=5.58e+03 | alpha=1.38e-04 | 25K steps/s | last_imp@3249999
-step    3500000 | mu=0.6871374032697195 | best=0.6871374032697195 | gap=-2.279824e-05 | beta=8.02e+03 | alpha=1.38e-04 | 25K steps/s | last_imp@3499999
+step          1 | mu=0.7031598575065610 | best=0.7031598575065610 | gap=+1.599966e-02 | beta=[REDACTED] | alpha=[REDACTED] | 12K steps/s | last_imp@0
+step     250000 | mu=0.6966815998778930 | best=0.6966815998778930 | gap=+9.521398e-03 | beta=[REDACTED] | alpha=[REDACTED] | 24K steps/s | last_imp@249999
+step     500000 | mu=0.6944014133124611 | best=0.6944014133124611 | gap=+7.241212e-03 | beta=[REDACTED] | alpha=[REDACTED] | 24K steps/s | last_imp@499999
+step     750000 | mu=0.6925956014546215 | best=0.6925956014546215 | gap=+5.435400e-03 | beta=[REDACTED] | alpha=[REDACTED] | 24K steps/s | last_imp@749999
+step    1000000 | mu=0.6911071652593005 | best=0.6911071652593005 | gap=+3.946964e-03 | beta=[REDACTED] | alpha=[REDACTED] | 24K steps/s | last_imp@999999
+step    1250000 | mu=0.6898058291992044 | best=0.6898058291992044 | gap=+2.645628e-03 | beta=[REDACTED] | alpha=[REDACTED] | 23K steps/s | last_imp@1249999
+step    1500000 | mu=0.6889595643478105 | best=0.6889595643478105 | gap=+1.799363e-03 | beta=[REDACTED] | alpha=[REDACTED] | 23K steps/s | last_imp@1499999
+step    1750000 | mu=0.6883679562798498 | best=0.6883679562798498 | gap=+1.207755e-03 | beta=[REDACTED] | alpha=[REDACTED] | 23K steps/s | last_imp@1749999
+step    2000000 | mu=0.6878955596898793 | best=0.6878955596898793 | gap=+7.353582e-04 | beta=[REDACTED] | alpha=[REDACTED] | 23K steps/s | last_imp@1999999
+step    2250000 | mu=0.6876413697203183 | best=0.6876413697203183 | gap=+4.811682e-04 | beta=[REDACTED] | alpha=[REDACTED] | 23K steps/s | last_imp@2249999
+step    2500000 | mu=0.6874730294705925 | best=0.6874730294705925 | gap=+3.128280e-04 | beta=[REDACTED] | alpha=[REDACTED] | 23K steps/s | last_imp@2499999
+step    2750000 | mu=0.6873493421138750 | best=0.6873493421138750 | gap=+1.891406e-04 | beta=[REDACTED] | alpha=[REDACTED] | 24K steps/s | last_imp@2749999
+step    3000000 | mu=0.6872505983607575 | best=0.6872505983607575 | gap=+9.039685e-05 | beta=[REDACTED] | alpha=[REDACTED] | 24K steps/s | last_imp@2999999
+step    3250000 | mu=0.6871811475756584 | best=0.6871811475756584 | gap=+2.094607e-05 | beta=[REDACTED] | alpha=[REDACTED] | 25K steps/s | last_imp@3249999
+step    3500000 | mu=0.6871374032697195 | best=0.6871374032697195 | gap=-2.279824e-05 | beta=[REDACTED] | alpha=[REDACTED] | 25K steps/s | last_imp@3499999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6871374032697195 < 0.6871602015093070 ***
-step    3750000 | mu=0.6871060426723841 | best=0.6871060426723841 | gap=-5.415884e-05 | beta=1.15e+04 | alpha=1.38e-04 | 26K steps/s | last_imp@3749999
+step    3750000 | mu=0.6871060426723841 | best=0.6871060426723841 | gap=-5.415884e-05 | beta=[REDACTED] | alpha=[REDACTED] | 26K steps/s | last_imp@3749999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6871060426723841 < 0.6871602015093070 ***
-step    4000000 | mu=0.6870845292590128 | best=0.6870845292590128 | gap=-7.567225e-05 | beta=1.66e+04 | alpha=1.38e-04 | 26K steps/s | last_imp@3999999
+step    4000000 | mu=0.6870845292590128 | best=0.6870845292590128 | gap=-7.567225e-05 | beta=[REDACTED] | alpha=[REDACTED] | 26K steps/s | last_imp@3999999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870845292590128 < 0.6871602015093070 ***
-step    4250000 | mu=0.6870695728746493 | best=0.6870695728746493 | gap=-9.062863e-05 | beta=2.38e+04 | alpha=1.38e-04 | 27K steps/s | last_imp@4249999
+step    4250000 | mu=0.6870695728746493 | best=0.6870695728746493 | gap=-9.062863e-05 | beta=[REDACTED] | alpha=[REDACTED] | 27K steps/s | last_imp@4249999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870695728746493 < 0.6871602015093070 ***
-step    4500000 | mu=0.6870590152435959 | best=0.6870590152435959 | gap=-1.011863e-04 | beta=3.42e+04 | alpha=1.38e-04 | 27K steps/s | last_imp@4499999
+step    4500000 | mu=0.6870590152435959 | best=0.6870590152435959 | gap=-1.011863e-04 | beta=[REDACTED] | alpha=[REDACTED] | 27K steps/s | last_imp@4499999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870590152435959 < 0.6871602015093070 ***
-step    4750000 | mu=0.6870517625735140 | best=0.6870517625735140 | gap=-1.084389e-04 | beta=4.92e+04 | alpha=1.38e-04 | 28K steps/s | last_imp@4749999
+step    4750000 | mu=0.6870517625735140 | best=0.6870517625735140 | gap=-1.084389e-04 | beta=[REDACTED] | alpha=[REDACTED] | 28K steps/s | last_imp@4749999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870517625735140 < 0.6871602015093070 ***
-step    5000000 | mu=0.6870467027547804 | best=0.6870467027547804 | gap=-1.134988e-04 | beta=7.07e+04 | alpha=1.38e-04 | 28K steps/s | last_imp@4999999
+step    5000000 | mu=0.6870467027547804 | best=0.6870467027547804 | gap=-1.134988e-04 | beta=[REDACTED] | alpha=[REDACTED] | 28K steps/s | last_imp@4999999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870467027547804 < 0.6871602015093070 ***
-step    5250000 | mu=0.6870431810928525 | best=0.6870431810928525 | gap=-1.170204e-04 | beta=1.02e+05 | alpha=1.38e-04 | 29K steps/s | last_imp@5249999
+step    5250000 | mu=0.6870431810928525 | best=0.6870431810928525 | gap=-1.170204e-04 | beta=[REDACTED] | alpha=[REDACTED] | 29K steps/s | last_imp@5249999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870431810928525 < 0.6871602015093070 ***
-step    5500000 | mu=0.6870407213040383 | best=0.6870407213040383 | gap=-1.194802e-04 | beta=1.46e+05 | alpha=1.38e-04 | 29K steps/s | last_imp@5499999
+step    5500000 | mu=0.6870407213040383 | best=0.6870407213040383 | gap=-1.194802e-04 | beta=[REDACTED] | alpha=[REDACTED] | 29K steps/s | last_imp@5499999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870407213040383 < 0.6871602015093070 ***
-step    5750000 | mu=0.6870390174882425 | best=0.6870390174882425 | gap=-1.211840e-04 | beta=2.10e+05 | alpha=1.38e-04 | 29K steps/s | last_imp@5749999
+step    5750000 | mu=0.6870390174882425 | best=0.6870390174882425 | gap=-1.211840e-04 | beta=[REDACTED] | alpha=[REDACTED] | 29K steps/s | last_imp@5749999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870390174882425 < 0.6871602015093070 ***
-step    6000000 | mu=0.6870378418460584 | best=0.6870378418460584 | gap=-1.223597e-04 | beta=3.02e+05 | alpha=1.38e-04 | 30K steps/s | last_imp@5999999
+step    6000000 | mu=0.6870378418460584 | best=0.6870378418460584 | gap=-1.223597e-04 | beta=[REDACTED] | alpha=[REDACTED] | 30K steps/s | last_imp@5999999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870378418460584 < 0.6871602015093070 ***
-step    6250000 | mu=0.6870370259841927 | best=0.6870370259841927 | gap=-1.231755e-04 | beta=4.34e+05 | alpha=1.38e-04 | 30K steps/s | last_imp@6249999
+step    6250000 | mu=0.6870370259841927 | best=0.6870370259841927 | gap=-1.231755e-04 | beta=[REDACTED] | alpha=[REDACTED] | 30K steps/s | last_imp@6249999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870370259841927 < 0.6871602015093070 ***
-step    6500000 | mu=0.6870364587303205 | best=0.6870364587303205 | gap=-1.237428e-04 | beta=6.23e+05 | alpha=1.38e-04 | 30K steps/s | last_imp@6499999
+step    6500000 | mu=0.6870364587303205 | best=0.6870364587303205 | gap=-1.237428e-04 | beta=[REDACTED] | alpha=[REDACTED] | 30K steps/s | last_imp@6499999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870364587303205 < 0.6871602015093070 ***
-step    6750000 | mu=0.6870360644200935 | best=0.6870360644200935 | gap=-1.241371e-04 | beta=8.96e+05 | alpha=2.33e-05 | 31K steps/s | last_imp@6749999
+step    6750000 | mu=0.6870360644200935 | best=0.6870360644200935 | gap=-1.241371e-04 | beta=[REDACTED] | alpha=[REDACTED] | 31K steps/s | last_imp@6749999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870360644200935 < 0.6871602015093070 ***
-step    7000000 | mu=0.6870357898345374 | best=0.6870357898345374 | gap=-1.244117e-04 | beta=1.29e+06 | alpha=2.33e-05 | 31K steps/s | last_imp@6999999
+step    7000000 | mu=0.6870357898345374 | best=0.6870357898345374 | gap=-1.244117e-04 | beta=[REDACTED] | alpha=[REDACTED] | 31K steps/s | last_imp@6999999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870357898345374 < 0.6871602015093070 ***
-step    7250000 | mu=0.6870355988309595 | best=0.6870355988309595 | gap=-1.246027e-04 | beta=1.85e+06 | alpha=2.33e-05 | 31K steps/s | last_imp@7249999
+step    7250000 | mu=0.6870355988309595 | best=0.6870355988309595 | gap=-1.246027e-04 | beta=[REDACTED] | alpha=[REDACTED] | 31K steps/s | last_imp@7249999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870355988309595 < 0.6871602015093070 ***
-step    7500000 | mu=0.6870354659616320 | best=0.6870354659616320 | gap=-1.247355e-04 | beta=2.66e+06 | alpha=2.33e-05 | 31K steps/s | last_imp@7499999
+step    7500000 | mu=0.6870354659616320 | best=0.6870354659616320 | gap=-1.247355e-04 | beta=[REDACTED] | alpha=[REDACTED] | 31K steps/s | last_imp@7499999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870354659616320 < 0.6871602015093070 ***
-step    7750000 | mu=0.6870353735253721 | best=0.6870353735253721 | gap=-1.248280e-04 | beta=3.82e+06 | alpha=2.33e-05 | 32K steps/s | last_imp@7749999
+step    7750000 | mu=0.6870353735253721 | best=0.6870353735253721 | gap=-1.248280e-04 | beta=[REDACTED] | alpha=[REDACTED] | 32K steps/s | last_imp@7749999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870353735253721 < 0.6871602015093070 ***
-step    8000000 | mu=0.6870353092483452 | best=0.6870353092483452 | gap=-1.248923e-04 | beta=5.49e+06 | alpha=3.91e-06 | 32K steps/s | last_imp@7999999
+step    8000000 | mu=0.6870353092483452 | best=0.6870353092483452 | gap=-1.248923e-04 | beta=[REDACTED] | alpha=[REDACTED] | 32K steps/s | last_imp@7999999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870353092483452 < 0.6871602015093070 ***
-step    8250000 | mu=0.6870352644879060 | best=0.6870352644879060 | gap=-1.249370e-04 | beta=7.89e+06 | alpha=3.91e-06 | 32K steps/s | last_imp@8249999
+step    8250000 | mu=0.6870352644879060 | best=0.6870352644879060 | gap=-1.249370e-04 | beta=[REDACTED] | alpha=[REDACTED] | 32K steps/s | last_imp@8249999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870352644879060 < 0.6871602015093070 ***
-step    8500000 | mu=0.6870352333487151 | best=0.6870352333487151 | gap=-1.249682e-04 | beta=1.13e+07 | alpha=3.91e-06 | 32K steps/s | last_imp@8499999
+step    8500000 | mu=0.6870352333487151 | best=0.6870352333487151 | gap=-1.249682e-04 | beta=[REDACTED] | alpha=[REDACTED] | 32K steps/s | last_imp@8499999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870352333487151 < 0.6871602015093070 ***
-step    8750000 | mu=0.6870352116851506 | best=0.6870352116851506 | gap=-1.249898e-04 | beta=1.63e+07 | alpha=3.91e-06 | 32K steps/s | last_imp@8749999
+step    8750000 | mu=0.6870352116851506 | best=0.6870352116851506 | gap=-1.249898e-04 | beta=[REDACTED] | alpha=[REDACTED] | 32K steps/s | last_imp@8749999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870352116851506 < 0.6871602015093070 ***
-step    9000000 | mu=0.6870351966193119 | best=0.6870351966193119 | gap=-1.250049e-04 | beta=2.34e+07 | alpha=4.60e-07 | 33K steps/s | last_imp@8999999
+step    9000000 | mu=0.6870351966193119 | best=0.6870351966193119 | gap=-1.250049e-04 | beta=[REDACTED] | alpha=[REDACTED] | 33K steps/s | last_imp@8999999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870351966193119 < 0.6871602015093070 ***
-step    9250000 | mu=0.6870351861346164 | best=0.6870351861346164 | gap=-1.250154e-04 | beta=3.37e+07 | alpha=4.60e-07 | 33K steps/s | last_imp@9249999
+step    9250000 | mu=0.6870351861346164 | best=0.6870351861346164 | gap=-1.250154e-04 | beta=[REDACTED] | alpha=[REDACTED] | 33K steps/s | last_imp@9249999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870351861346164 < 0.6871602015093070 ***
-step    9500000 | mu=0.6870351788348714 | best=0.6870351788348714 | gap=-1.250227e-04 | beta=4.84e+07 | alpha=4.60e-07 | 33K steps/s | last_imp@9499999
+step    9500000 | mu=0.6870351788348714 | best=0.6870351788348714 | gap=-1.250227e-04 | beta=[REDACTED] | alpha=[REDACTED] | 33K steps/s | last_imp@9499999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870351788348714 < 0.6871602015093070 ***
-step    9750000 | mu=0.6870351737564984 | best=0.6870351737564984 | gap=-1.250278e-04 | beta=6.96e+07 | alpha=4.60e-07 | 33K steps/s | last_imp@9749999
+step    9750000 | mu=0.6870351737564984 | best=0.6870351737564984 | gap=-1.250278e-04 | beta=[REDACTED] | alpha=[REDACTED] | 33K steps/s | last_imp@9749999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870351737564984 < 0.6871602015093070 ***
-step   10000000 | mu=0.6870351702235971 | best=0.6870351702235971 | gap=-1.250313e-04 | beta=1.00e+08 | alpha=4.60e-07 | 33K steps/s | last_imp@9999999
+step   10000000 | mu=0.6870351702235971 | best=0.6870351702235971 | gap=-1.250313e-04 | beta=[REDACTED] | alpha=[REDACTED] | 33K steps/s | last_imp@9999999
 *** BREAKS COHN BARRIER byte-exact: best_mu = 0.6870351702235971 < 0.6871602015093070 ***
 ============================================================
 FINAL: best_mu = 0.6870351702235971
@@ -170,6 +171,19 @@ tee aquile_hormi_raw1_TIMING_TEST.log  0,00s user 0,01s system 0% cpu 5:00,42 to
 ```
 
 The final line — `5:00,42 total` — is the directly-measured wall time of the re-execution, in minutes and seconds, on the Mac M2 with `taskpolicy -c utility` (25% CPU throttle) and `caffeinate -dims` (no sleep).
+
+What the log preserves, byte-exact:
+
+- The full step counter from step 1 to step 10 000 000.
+- The full trajectory of the coherence value `μ` and its gap to the Cohn baseline.
+- The per-interval throughput (steps/second), rising from 12 000 at startup to ~33 000 at convergence.
+- The step (~3 500 000) at which the run first breaks the Cohn barrier.
+- The progressively smaller per-interval improvements as the run approaches the local minimum.
+- The final value `μ = 0.6870351702235971`, byte-exact identical to the original record-#2 file.
+- The D190 verification sequence (STRUCTURAL, FINAL_VERIFY, ROUNDTRIP), all PASS.
+- The directly-measured wall time: `5:00,42 total`.
+
+What is intentionally not preserved (the four engine hyperparameters): see the licensing note above.
 
 ---
 
