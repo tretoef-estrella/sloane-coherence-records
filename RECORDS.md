@@ -57,7 +57,7 @@ step 5,000,000: μ = 0.6870521319...
 step 7,000,000: μ = 0.6870411366...
 step 10,000,000: μ = 0.6870404944714217 ← FINAL (record #1)
 ```
-Total runtime: approximately 5.5 hours.
+Total runtime: approximately 5 minutes (300 seconds wall time, Mac M2 single-thread at 25% CPU throttle).
 
 ---
 
@@ -120,7 +120,7 @@ step 5,750,000: μ = 0.6870390174... ← crosses record #1 threshold
 step 7,000,000: μ = 0.6870357898...
 step 10,000,000: μ = 0.6870351702235971 ← FINAL (record #2)
 ```
-Total runtime: approximately 5.5 hours.
+Total runtime: approximately 5 minutes (verified byte-exact re-execution on May 13, 2026: 5 min 0.42 sec, reproducing μ = 0.6870351702235971 to 16 digits; see [`ERRATA.md`](ERRATA.md) for the complete Mac runtime log).
 
 ---
 
