@@ -18,7 +18,7 @@ Between May 12 and May 16, 2026, the longstanding world record for the minimum-c
 | **Amichis Luengo — record #3** | **2026-05-16 (afternoon CEST)** | **`0.687033937262633`** | (6, 17) | **−1.263 × 10⁻⁴** | **Boagrius** |
 | **Amichis Luengo — record #4** | **2026-05-16 (evening CEST)** | **`0.687033931214091`** | (9, 25) | **−1.263 × 10⁻⁴ (−0.0184%)** | **Boagrius** |
 
-All four packings have been independently verified, each ratified byte-exact by **five independent code paths** in two programming languages, using four different numerical libraries (and one path with no library at all). Each kernel reports identical coherence to the precision available, and the worst-pair indices agree across all five paths in every case. Record #2 was additionally reproduced byte-exact by Professor **Henry Cohn (MIT)** in his own code on May 12, 2026 (43 minutes after notification by the author).
+All four packings have been independently verified, each ratified byte-exact by **five independent code paths** in two programming languages, using four different numerical libraries (and one path with no library at all). Each kernel reports identical coherence to the precision available, and the worst-pair indices agree across all five paths in every case. Record #2 was additionally reproduced byte-exact by Professor **Henry Cohn (MIT)** in his own code on May 12, 2026.
 
 Records #1 and #2 share worst pair `(31, 38)` — the basin discovered on May 12. Records #3 and #4 have worst pairs `(6, 17)` and `(9, 25)` respectively, indicating that the cascade from Record 2 to Record 3 to Record 4 traversed structurally distinct basins, not a refinement of the same basin.
 
