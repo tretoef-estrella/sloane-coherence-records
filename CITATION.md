@@ -29,11 +29,11 @@ standard way to handle Spanish double surnames in BibTeX.
 
 ## Plain-text citation
 
-> Amichis Luengo, Rafael (2026). *Two world records in Grassmannian coherence packings (d=4, n=64) hlc.* Independent research, Madrid, Spain. May 12, 2026. Available at: https://github.com/tretoef-estrella/sloane-coherence-records
+> Amichis Luengo, Rafael (2026). *Four world records in Grassmannian coherence packings (d=4, n=64) hlc.* Independent research, Madrid, Spain. May 12–16, 2026. Available at: https://github.com/tretoef-estrella/sloane-coherence-records
 
 If using author–year style with abbreviated given name:
 
-> Amichis Luengo, R. (2026). *Two world records in Grassmannian coherence packings (d=4, n=64) hlc.* Independent research, Madrid, Spain. May 12, 2026. Available at: https://github.com/tretoef-estrella/sloane-coherence-records
+> Amichis Luengo, R. (2026). *Four world records in Grassmannian coherence packings (d=4, n=64) hlc.* Independent research, Madrid, Spain. May 12–16, 2026. Available at: https://github.com/tretoef-estrella/sloane-coherence-records
 
 ---
 
@@ -42,14 +42,15 @@ If using author–year style with abbreviated given name:
 ```bibtex
 @misc{amichisluengo2026sloane,
   author       = {Amichis Luengo, Rafael},
-  title        = {Two world records in {Grassmannian} coherence packings ($d=4$, $n=64$) hlc},
+  title        = {Four world records in {Grassmannian} coherence packings ($d=4$, $n=64$) hlc},
   year         = {2026},
   month        = {5},
-  day          = {12},
   howpublished = {\url{https://github.com/tretoef-estrella/sloane-coherence-records}},
-  note         = {Coherence records: $\mu_1 = 0.687040494471422$ (record \#1) and
-                  $\mu_2 = 0.687035170223597$ (record \#2). Both records
-                  verified byte-exact by five independent kernels.
+  note         = {Coherence records: $\mu_1 = 0.687040494471422$ (record \#1, May 12),
+                  $\mu_2 = 0.687035170223597$ (record \#2, May 12),
+                  $\mu_3 = 0.687033937262633$ (record \#3, May 16), and
+                  $\mu_4 = 0.687033931214091$ (record \#4, May 16).
+                  All four records verified byte-exact by five independent kernels.
                   Independent researcher, Madrid, Spain.
                   Author name: please cite as ``Amichis Luengo, R.''
                   with both surnames; avoid abbreviating the second surname.},
@@ -73,23 +74,40 @@ numeric styles.
 |:---|:---|
 | Author | Rafael Amichis Luengo |
 | Affiliation | Independent researcher, Madrid, Spain |
-| Title | Two world records in Grassmannian coherence packings (d=4, n=64) hlc |
-| Date | May 12, 2026 |
+| Title | Four world records in Grassmannian coherence packings (d=4, n=64) hlc |
+| Date range | May 12 – May 16, 2026 |
 | Type | Dataset / open-source research artefact |
-| Version | 1.0 |
-| License | MIT (records, verifier, paper, documentation); engine source code under separate arrangement |
+| Version | 2.0 (Records 3 and 4 added) |
+| License | MIT (records, verifier, papers, documentation); engine source code under separate arrangement |
 | URL | https://github.com/tretoef-estrella/sloane-coherence-records |
-| Record #1 coherence | μ = 0.687040494471422 |
-| Record #2 coherence | μ = 0.687035170223597 |
+| Record #1 coherence (Aquiles, May 12) | μ = 0.687040494471422, worst pair (31, 38) |
+| Record #2 coherence (Aquiles, May 12) | μ = 0.687035170223597, worst pair (31, 38) |
+| Record #3 coherence (Boagrius, May 16) | μ = 0.687033937262633, worst pair (6, 17) |
+| Record #4 coherence (Boagrius, May 16) | μ = 0.687033931214091, worst pair (9, 25) |
 | Previous record (Cohn et al.) | μ = 0.687160201509307 |
-| Improvement (record #2 vs. Cohn) | −1.250 × 10⁻⁴ absolute, −0.0182% relative |
-| Verification | Byte-exact, 5 independent kernels |
+| Cumulative improvement (record #4 vs. Cohn) | −1.263 × 10⁻⁴ absolute, −0.0184% relative |
+| Verification | Byte-exact, 5 independent kernels per record |
+
+---
+
+## Citing a single record
+
+If you cite only one of the four records (e.g. in a paper that uses one specific
+packing), the recommended form is to refer to it as "Record N" (where N is 1, 2,
+3, or 4) and to include both the coherence value and the worst-pair indices, so
+that the reader can identify the packing unambiguously:
+
+> Amichis Luengo, R. (2026). Record 4 in the Grassmannian coherence cascade,
+> (d=4, n=64) hlc. μ = 0.687033931214091, worst pair (9, 25), Boagrius engine,
+> May 16, 2026. Available at:
+> https://github.com/tretoef-estrella/sloane-coherence-records (file:
+> `4x64_record4.txt`).
 
 ---
 
 ## Keywords
 
-`Grassmannian packing` · `coherence` · `frame theory` · `equiangular tight frame` · `compressed sensing` · `MIMO precoding` · `CDMA codes` · `quantum state tomography` · `Mac M2` · `Riemannian gradient flow` · `smoothed-max optimization`
+`Grassmannian packing` · `coherence` · `frame theory` · `equiangular tight frame` · `compressed sensing` · `MIMO precoding` · `CDMA codes` · `quantum state tomography` · `Mac M2` · `Riemannian gradient flow` · `smoothed-max optimization` · `constrained-feasibility optimization`
 
 ---
 
