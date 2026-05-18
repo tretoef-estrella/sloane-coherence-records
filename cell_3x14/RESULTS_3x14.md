@@ -4,9 +4,9 @@
 > Mac M2 single-thread · One sub-Mixon packing in cell (3, 14) · **Sanjuanbautista** engine
 >
 > Submission file: [`3x14_record1.txt`](3x14_record1.txt)
-> Holder reference: [`3x14_holder_mixon.txt`](3x14_holder_mixon.txt)
 > Companion paper: [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md)
 > Folder README: [`README.md`](README.md)
+> Mixon (2019) holder reference: see the Game of Sloanes catalog (Jasper, King, Mixon; https://github.com/gnikylime/GameofSloanes). The holder file is publicly available there and is not redistributed in this folder; the holder coherence is reported numerically below for direct comparison.
 
 ---
 
@@ -15,10 +15,10 @@
 | Quantity | Value |
 |:---|:---|
 | **Submitted coherence μ** | **`0.637630514941861`** |
-| **Holder coherence μ (Mixon, 2019)** | **`0.637630521755923`** |
+| **Mixon (2019) holder coherence μ** | **`0.637630521755923`** |
 | **Raw gap Δμ** | **`−6.81 × 10⁻⁹`** |
 | **Submitted round-8** | **`0.63763051`** |
-| **Holder round-8** | **`0.63763052`** |
+| **Mixon holder round-8** | **`0.63763052`** |
 | **Game of Sloanes rule (≥ 8th decimal)** | **satisfied** (1 unit at the 8th decimal, in the minimisation direction) |
 | **Engine** | **Sanjuanbautista** (quad-precision) |
 | Welch lower bound for (3, 14) | `0.5310850045` |
@@ -31,7 +31,7 @@
 | Number of floats in `3x14_record1.txt` | 84 = 2 · 3 · 14 |
 | File format | Game of Sloanes standard (42 real components, then 42 imaginary) |
 
-The submission improves the Mixon (2019) holder by a microscopic absolute margin (`6.81 × 10⁻⁹`) and by exactly one unit at the eighth decimal place. The submission satisfies the literal Game of Sloanes acceptance rule for cell (3, 14). The improvement is reported with the explicit basin-floor caveat documented in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md): both the submission and the Mixon holder appear to occupy a common critical basin whose floor has been reached at machine-quantum precision. **No claim of global optimality is made for the cell.**
+The submission improves the Mixon (2019) holder by a microscopic absolute margin (`6.81 × 10⁻⁹`) and by exactly one unit at the eighth decimal place. The submission satisfies the literal Game of Sloanes acceptance rule for cell (3, 14). The improvement is reported with the explicit basin-floor caveat documented in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md): both the submission and the Mixon holder *appear* to occupy a common critical basin whose floor *may* have been reached at machine-quantum precision. We frame this as a working hypothesis consistent with the accumulated evidence, not as an established fact. **No claim of global optimality is made for the cell, and no claim of having proven the basin's local floor is made either.**
 
 The cushion of `5.81 × 10⁻¹¹` below the 8-decimal rounding boundary `0.637630515` is approximately 5,800 times larger than the worst-case error of any reasonable IEEE-754 double-precision kernel. Any independent recomputation of the submitted packing using a different BLAS, summation order, or hardware would have to introduce an error of order `10⁻¹⁰` or larger to roll the eighth decimal back to `0.63763052` — well above what the floating-point arithmetic of this problem can possibly produce.
 
@@ -39,7 +39,7 @@ The cushion of `5.81 × 10⁻¹¹` below the 8-decimal rounding boundary `0.6376
 
 ## A note on the size of this result
 
-The author would have preferred to deepen the packing further before filing. The descent was pursued with that intent across multiple sessions. After the optimisation portfolio documented in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md) §4 had been exhausted against this basin, no further descent was achievable: not by fractions of a millionth, not by fractions of a billionth, not by anything the available paradigms could produce. The submission is filed because the margin is real, reproducible at the eighth decimal place across five independent kernels, and supported by structural evidence that the basin floor has been reached. It is filed with the understanding that the margin is small.
+The author would have preferred to deepen the packing further before filing. The descent was pursued with that intent across multiple sessions. After the optimisation portfolio documented in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md) §4 had been exhausted against this basin, no further descent was achievable: not by fractions of a millionth, not by fractions of a billionth, not by anything the available paradigms could produce. The submission is filed because the margin is real, reproducible at the eighth decimal place across five independent kernels, and supported by evidence consistent with — but not proving — the working hypothesis that the basin floor has been reached. It is filed with the understanding that the margin is small.
 
 ---
 
@@ -70,13 +70,13 @@ The five kernels above report **five different argmax pairs** for the submission
 | K4 `mpmath` 50 dps | (5, 7) |
 | K5 `decimal` 40 prec | (3, 7) |
 
-This is not a kernel inconsistency. It is a structural property of the basin floor for cell (3, 14): the basin supports a small discrete family of critical points at the same μ value to within numerical precision, with the maximum-coherence pair migrating across this family depending on the summation order and rounding model of the kernel. The same degeneracy is documented in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md) §3.3. The coherence value itself is reproduced byte-exact across all five kernels.
+We *interpret* this as a structural property of the apparent basin floor for cell (3, 14): the basin *appears* to support a small discrete family of critical points at the same μ value to within numerical precision, with the maximum-coherence pair migrating across this family depending on the summation order and rounding model of the kernel. We do not claim to have proven this interpretation — only that it is consistent with the observed kernel disagreement and with the other lines of evidence documented in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md) §3.3. The coherence value itself is reproduced byte-exact across all five kernels regardless of which interpretation one adopts.
 
 ---
 
-## Five-kernel ratification (Mixon holder)
+## Five-kernel ratification (Mixon 2019 holder)
 
-For comparison, the same five kernels run on the Mixon (2019) catalog holder in `3x14_holder_mixon.txt`:
+For comparison, the same five kernels run on a local working copy of the Mixon (2019) catalog holder for cell (3, 14) (the holder file is publicly available in the Game of Sloanes catalog (Jasper, King, Mixon; https://github.com/gnikylime/GameofSloanes); it is not redistributed in this folder):
 
 | Kernel | Implementation | μ (full precision) | round-8 | argmax pair |
 |:---|:---|:---|:---|:---|
@@ -87,7 +87,7 @@ For comparison, the same five kernels run on the Mixon (2019) catalog holder in 
 | K5 | Python `decimal` at 40 decimal digits | `0.6376305217559226` | `0.63763052` | (2, 3) |
 
 mpmath reference at 50 decimal digits: `0.63763052175592256598…`
-Within-kernel spread: `≤ 1 ULP binary64`. The holder configuration shows a stable argmax pair `(2, 3)` across all five kernels — a structural difference from the submission, consistent with the holder sitting on a generic stationary point and the submission sitting at the degenerate basin floor described above.
+Within-kernel spread: `≤ 1 ULP binary64`. The holder configuration shows a stable argmax pair `(2, 3)` across all five kernels — a structural difference from the submission, consistent with the holder sitting on a generic stationary point and the submission sitting at the *apparent* basin floor described above.
 
 ### Gap (full precision, mpmath 50 dps)
 
@@ -104,9 +104,9 @@ Within-kernel spread: `≤ 1 ULP binary64`. The holder configuration shows a sta
 | Welch (3, 14) | `0.5310850045` | `+0.1066` (submission well above Welch) |
 | Levenshtein-2 (3, 14) | `0.6445033866` | `+0.0069` (submission below L-2 — but L-2 is not always tight; here it is exceeded, consistent with non-saturation of L-2 for this cell) |
 | Delsarte LP at degree 14 (this work, mpmath rationalisation) | `0.6035844` | `+0.0340` (submission well above LP bound) |
-| Mixon holder (2019) | `0.6376305217559226` | `−6.81 × 10⁻⁹` (submission below holder) |
+| Mixon (2019) holder | `0.6376305217559226` | `−6.81 × 10⁻⁹` (submission below holder) |
 
-The Delsarte linear-programming bound at degree 14 computed in companion work yields `0.6035844`, which is approximately `5.4%` below the submission's coherence value. **This gap is mathematically large enough to admit deeper basins reachable via algebraic seeds, structured constructions, or paradigms not yet considered.** The basin-floor evidence in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md) speaks only to this basin; the rest of the cell's landscape remains open.
+The Delsarte linear-programming bound at degree 14 computed in companion work yields `0.6035844`, which is approximately `5.4%` below the submission's coherence value. **This gap is mathematically large enough to admit deeper basins reachable via algebraic seeds, structured constructions, or paradigms not yet considered.** The basin-floor evidence in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md) speaks only to the basin we explored; the rest of the cell's landscape remains open.
 
 ---
 
@@ -120,7 +120,6 @@ The Delsarte linear-programming bound at degree 14 computed in companion work yi
 | Coherence definition used | μ = max_{i<j} ∣⟨v_i, v_j⟩∣ (Hermitian inner product) ✓ |
 | Independent Python verifier reproduction | μ = `0.637630514941861` ✓ |
 | MD5 of `3x14_record1.txt` | `816a9cd669c139b86f5706e236843710` |
-| MD5 of `3x14_holder_mixon.txt` (reference copy of `3x14_dgm.txt` from the Game of Sloanes catalog) | `d09261ed6f2fbbd7dc6826ddb246ee7e` |
 
 ---
 
@@ -132,9 +131,9 @@ The Mac runtime log for the optimisation pass that produced `3x14_record1.txt` i
 
 ## Acknowledgments
 
-- **Dustin G. Mixon** — for the published (2019) catalog entry for cell `(3, 14)` (file `3x14_dgm.txt` in the Game of Sloanes catalog) against which our submission is compared. The Mixon holder was the standing record for over six years before this submission, and its byte-exact unit-norm structure and saturated-pair topology are documented as the reference baseline throughout this work.
+- **Dustin G. Mixon** — for the published (2019) catalog entry for cell `(3, 14)` against which our submission is compared. The Mixon holder was the standing record for over six years before this submission, and its byte-exact unit-norm structure and saturated-pair topology are documented as the reference baseline throughout this work. The holder packing itself is publicly available in the Game of Sloanes catalog and is not redistributed here.
 - **Emily King, John Jasper, Dustin G. Mixon** — for maintaining the Game of Sloanes reference repository (https://github.com/gnikylime/GameofSloanes) and for the published acceptance rule on which the submission's eligibility is based.
-- **Anthropic** — for building Claude, the AI assistant that collaborated on the five-kernel verification pipeline and the basin-floor analysis documented in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md).
+- **Anthropic** — for building Claude, the AI assistant that collaborated on the five-kernel verification pipeline and the basin-floor reasoning documented in [`Paper_3x14_basin_floor.md`](Paper_3x14_basin_floor.md).
 
 ---
 
