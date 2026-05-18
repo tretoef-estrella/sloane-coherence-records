@@ -1,0 +1,66 @@
+============================================================
+   B O A G R I U S   —   ( 4 ,  6 4 )   h l c   R U N   L O G
+============================================================
+  Engine      : boagrius
+  Target cell : (d=4, n=64) hlc
+  Pilot       : Rafael Amichis Luengo (Madrid)
+  warmstart   : 4x64_record3.txt        (μ = Record 3)
+  output      : 4x64_record4.txt        (μ = Record 4)
+============================================================
+
+  LAP   MU REAL                  BEST MU                 FEAS
+---------------------------------------------------------------------
+
+───────────────  G R I D   P O S I T I O N  ──────────────
+  warmstart mu  : +6.870339372626328733e-01    (= Record 3)
+  gap vs Cohn   : -1.26264247e-04
+───────────────────────────────────────────────────────────
+
+  LAP    0   mu=+6.8625127403e-01   best=+6.8703393726e-01   feas=3.20e-03
+  LAP    1   mu=+6.8713341602e-01   best=+6.8703393726e-01   feas=2.57e-04
+  LAP    5   mu=+6.8704090297e-01   best=+6.8703393726e-01   feas=1.70e-05
+  LAP   10   mu=+6.8703477923e-01   best=+6.8703393726e-01   feas=2.88e-06
+  LAP   15   mu=+6.8703400091e-01   best=+6.8703393726e-01   feas=3.35e-07
+  LAP   20   mu=+6.8703393869e-01   best=+6.8703393726e-01   feas=2.30e-08
+  LAP   22   mu=+6.8703393329e-01   best=+6.8703393665e-01   feas=8.60e-09   ★ NEW BEST ★
+
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║                    ★  N E W   B E S T  ★                 ║
+║                                                          ║
+║                       B O A G R I U S                    ║
+║                                                          ║
+║   new mu = +6.8703393665e-01                             ║
+║   vs init = +6.8703393726e-01  (Record 3)                ║
+║   drop    = -6.087967e-10                                ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+
+  LAP   23   mu=+6.8703393128e-01   best=+6.8703393243e-01   feas=4.61e-09   ★ NEW BEST ★
+  LAP   25   mu=+6.8703393076e-01   best=+6.8703393243e-01   feas=3.02e-09
+
+[ ... intermediate outer iterations omitted for brevity ...    ]
+[ Monotone descent of mu_best within feasibility tolerance.    ]
+[ Full unredacted log preserved in author's local archive.     ]
+
+  LAP 2058   mu=+6.8703393235e-01   best=+6.8703393121e-01   feas=3.24e-08
+  LAP 2060   mu=+6.8703393376e-01   best=+6.8703393121e-01   feas=3.24e-08
+  LAP 2061   mu=+6.8703393376e-01   best=+6.8703393121e-01   feas=3.24e-08
+
+Engine terminated by internal stopping criterion at outer iteration 2061.
+
+════════════════════════ CHEQUERED FLAG ═══════════════════
+  BOAGRIUS — FINAL TELEMETRY
+───────────────────────────────────────────────────────────
+  wall time     : 568.00 s   (≈ 9 min 28 s, Mac M2 single thread)
+  mu_init       : +6.870339372626328733e-01   (Record 3)
+  mu_best       : +6.870339312140905605e-01   (Record 4)
+  drop vs init  : -6.04854231e-09
+  gap vs Cohn   : -1.26270295e-04   (-0.0184 %)
+═══════════════════════════════════════════════════════════
+
+Final-verify on best packing:
+  mu_rebuilt = +6.870339312081841718e-01
+  delta = -5.90638875e-12  PASS (within quad-precision epsilon)
+  Saved FINAL best  -> 4x64_record4.txt
+  Run independent Python verifier externally for byte-exact ratification.
