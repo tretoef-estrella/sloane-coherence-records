@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use these records in your research, please cite as below."
+title: "Four world records in Grassmannian coherence packings (d=4, n=64) hlc"
+abstract: >
+  Four sub-Cohn world records for the minimum-coherence packing of 64 unit
+  vectors in complex 4-dimensional space, obtained on May 12 and May 16, 2026,
+  by an independent researcher running on a Mac M2 laptop single-thread.
+  Records 1 and 2 (May 12) were produced by the Aquiles engine
+  (smoothed-max + Riemannian gradient flow paradigm); Records 3 and 4
+  (May 16) were produced by the Boagrius engine (constrained-feasibility
+  paradigm) using cascade warmstarts. All four packings were verified
+  byte-exact by five independent code paths. Record 2 was additionally
+  reproduced byte-exact by Henry Cohn (MIT) within 43 minutes of notification.
+  The cumulative gap from Record 4 to the previous Cohn record is
+  approximately −1.263 × 10⁻⁴ (−0.0184%).
+type: dataset
+authors:
+  - family-names: "Amichis Luengo"
+    given-names: "Rafael"
+    affiliation: "Independent researcher, Madrid, Spain"
+    email: "tretoef@gmail.com"
+date-released: 2026-05-16
+version: "2.0"
+license: MIT
+url: "https://github.com/tretoef-estrella/sloane-coherence-records"
+repository-code: "https://github.com/tretoef-estrella/sloane-coherence-records"
+keywords:
+  - "Grassmannian packing"
+  - "coherence"
+  - "frame theory"
+  - "equiangular tight frame"
+  - "compressed sensing"
+  - "MIMO precoding"
+  - "CDMA codes"
+  - "quantum state tomography"
+  - "Mac M2"
+  - "Riemannian gradient flow"
+  - "smoothed-max optimization"
+  - "constrained-feasibility optimization"
+preferred-citation:
+  type: misc
+  authors:
+    - family-names: "Amichis Luengo"
+      given-names: "Rafael"
+  title: "Four world records in Grassmannian coherence packings (d=4, n=64) hlc"
+  year: 2026
+  month: 5
+  url: "https://github.com/tretoef-estrella/sloane-coherence-records"
+  notes: >
+    Records: mu_1 = 0.687040494471422 (record #1, Aquiles, May 12 afternoon, worst pair (31, 38)),
+    mu_2 = 0.687035170223597 (record #2, Aquiles, May 12 evening, worst pair (31, 38)),
+    mu_3 = 0.687033937262633 (record #3, Boagrius, May 16 afternoon, worst pair (6, 17)),
+    mu_4 = 0.687033931214091 (record #4, Boagrius, May 16 evening, worst pair (9, 25)).
+    All verified byte-exact by 5 independent kernels per record.
+    Previous Cohn record: 0.687160201509307. Cumulative improvement: -1.263e-4 absolute, -0.0184% relative.
+    Please cite as "Amichis Luengo, R." with both surnames preserved.
