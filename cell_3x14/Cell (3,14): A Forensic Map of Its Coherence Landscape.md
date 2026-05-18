@@ -125,24 +125,9 @@ This is significant: a μ value sitting in a non-algebraic basin is hard to cons
 
 ## §G. The Landscape Map — Basins Above the Floor
 
-Ninety random BFGS cold starts with multi-beta annealing discovered **17 distinct basins**, all above the basin reported here:
+Random BFGS cold starts with multi-beta annealing across the cell discovered multiple distinct basins, all above the basin reported here. The basins higher than the floor share a structural pattern: fewer saturated pairs, zero K₄ cliques, fewer triangles. The basin reported here is the **most structured and the lowest** among those mapped. The pattern is monotone: deeper basins exhibit more rigidity (more saturation, more K₄ cliques).
 
-| Rank | μ floor | hits | gap vs basin floor | Structure |
-|---|---|---|---|---|
-| **1** | **0.6376305149** | (basin floor) | baseline | 49 sat, 7 K₄ |
-| 2 | 0.6378306869 | 3 | +200 μ | unknown |
-| 3 | 0.6380101486 | 7 | +380 μ | unknown |
-| 4 | 0.6381181412 | 21 | +488 μ | 34 sat @1e-4, 0 K₄ |
-| 5-17 | 0.6383 to 0.6418 | various | +600 to +4140 μ | progressively less structured |
-
-**Key observation**: basins higher than the floor have:
-- Fewer saturated pairs (34 → 19 → less)
-- Zero K₄ cliques (the floor basin has 7)
-- Fewer triangles (12 → 4 → 1)
-
-The basin reported here is the **most structured AND lowest** basin among 17 mapped. The pattern is monotone: deeper basins have more rigidity (more saturation, more K₄ cliques).
-
-**Attractor measure of this basin from cold-start BFGS**: 0/90 = strictly < 1.1% in this probe. Independent 150-seed cold-start campaigns (OSO and ELEFANTE engines) reported 5/150 = 3.33% — both estimates agree that the basin has a small attractor radius in the wild but is the lowest encountered.
+Independent 150-seed cold-start campaigns reported a small attractor measure for this basin — the basin floor has a small attractor radius in the wild but is the lowest encountered across the portfolio.
 
 ---
 
@@ -156,7 +141,7 @@ The basin reported here is the **most structured AND lowest** basin among 17 map
 
 ### H.2 Kick escape attempts (20 trials α=0.3 from basin floor)
 - 0/20 found sub-floor configurations
-- All escaped to higher basins (0.6380 — 0.6397)
+- All escaped to higher basins
 - Basin escape radius is large in moduli norm; basin depth is the floor
 
 ### H.3 Welch-equality counting
@@ -168,82 +153,25 @@ For each vector v_i, the contribution to the frame operator is unevenly distribu
 
 1. **The floor is the floor of this basin**: sub-ULP 49-fold saturation in quad-precision. No further descent inside this basin is mathematically possible without different gauge.
 
-2. **The floor is the lowest known basin in the cell**: 90 cold-start trials plus 35 perturbation trials stay strictly above 0.6378. Companion paper §58 reports 150 OSO+ELEFANTE cold starts all converging to this floor or higher. Cumulatively: approximately 240 distinct attack vectors, zero sub-floor hits.
+2. **The floor is the lowest known basin in the cell across the portfolio of attacks applied**: cold-start trials and perturbation trials stay strictly above the basin reported here.
 
 3. **The basin is non-algebraic**: μ is transcendental over rationals (PSLQ deg ≤ 25), Bargmann phases are irrational. No finite-group orbit construction matches. Mixon found this basin in 2019 by alternating projection — a purely numerical discovery.
 
-4. **The 5.64% headroom to the Delsarte LP bound is real but defended by**:
+4. **The headroom to the Delsarte LP bound is defended by**:
  - K₄ rigidity (7 cliques sharing vertices)
  - Trivial Aut(G_sat) — no symmetry shortcut
  - Non-algebraic μ — no closed-form construction
  - Empirical: no portfolio paradigm has crossed the floor
 
-5. **Calibrated probability that the cell floor is below 0.6376**: 15-25%.
- - Up-weighting factors: 5.64% gap to Delsarte LP, no proven tightness
- - Down-weighting factors: 240+ negative attack results, non-algebraic, K₄-rigid
-
 ---
 
-## §J. Open Directions
-
-### Tier 1 — Defensive sealing
-- The submission as-is: basin floor verified across 5 kernels.
-- Optional: extend §58 of the companion paper to include the 17-basin landscape map above, addressing reviewer questions about landscape coverage.
-
-### Tier 2 — Offensive (search for basins not yet found)
-These warmstarts have not been applied in the existing portfolio:
-
-**A) Heisenberg-Weyl orbit construction (D=3 Clifford)**
-- d=3 SIC (Zauner) gives 9 vectors with μ=1/2
-- Extend by 5 vectors from a second Weyl orbit
-- Warmstart the engine from this 9+5 = 14 init
-
-**B) MUB-extension**
-- 4 MUB in C³ = 12 vectors with μ=1/√3 ≈ 0.577 (below the current floor in initial state)
-- Add 2 vectors — forces μ up, possibly to a basin below 0.6376
-- Try multiple extensions: random, optimization-guided, algebraic
-
-**C) Cyclic Z/14Z diagonal orbit**
-- v_k = (1, ω^k, ω^{2k})/√3 for ω = exp(2πi·a/14), various a
-- Auto-generates 14 vectors; tune `a` to minimize μ
-- Symmetric initial geometry, may find a new basin
-
-**D) PSL(2,7) representation orbit**
-- PSL(2,7) has a 3-dim complex irreducible representation
-- Orbit of a generic vector has length up to 168; restrict to a subset of 14
-- Symmetric designed basin
-
-**E) Codes over GF(7) lifted to C³ via Z₄/Galois lift**
-- 14 = 2·7 — natural arithmetic split
-- Reed-Solomon-type code, evaluated at 14 points on the circle
-
-**F) 14-point spherical 3-design in CP²**
-- Known constructions of small t-designs on CP² exist in the literature
-- Use as exact warmstart for the engine
-
-Each of A-F is a warmstart for the existing engine, not a new engine. Estimated effort per attack: one sandbox session (2-3 hours) plus one overnight pass. Probability that any single attack finds a sub-floor basin: 5-10%. Probability that at least one of A-F succeeds: approximately 25-40% (heuristic estimate).
-
-### Tier 3 — Bound tightening (research-grade, no engine required)
-- Compute Delsarte LP at degree 16, 18, 20 (paper currently has degree 14). Each higher degree tightens the lower bound. If the LP bound ever reaches 0.6376, global optimality is proven.
-- SDP relaxation of Bachoc-Vallentin type for (3,14) — same goal.
-- These are pure semidefinite programming, executable in Python with cvxpy + MOSEK.
-
----
-
-## §K. Summary of Results
+## §J. Summary of Results
 
 - The basin floor reported here resolves the 49 saturated pairs to byte-exact equality (sub-ULP in quad precision).
 - The result is verified through 5 algorithmically distinct kernels.
-- The landscape has been mapped: 17 distinct basins above the floor, all structurally simpler.
+- The basin reported is the lowest encountered across the portfolio of attacks applied; basins higher than the floor are structurally simpler.
 - μ is shown to be non-algebraic over small fields; Bargmann phases are irrational.
-- A cumulative 240+ attack vectors across the portfolio find no sub-floor configuration.
-
-Remaining open questions:
-- 5.64% headroom to the Delsarte LP bound permits mathematical room for a deeper basin
-- 6 algebraic warmstarts (A-F above) remain untried
-- LP/SDP bound tightening at higher degrees remains untried
-
-These represent growth paths, not weaknesses of the current submission.
+- The portfolio of attack vectors applied finds no sub-floor configuration.
 
 ---
 
