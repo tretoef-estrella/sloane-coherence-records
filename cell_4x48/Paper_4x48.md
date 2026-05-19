@@ -2,7 +2,7 @@
 
 **Author**: Rafael Amichis Luengo
 **Affiliation**: Independent researcher, Madrid, Spain
-**Date**: May 16, 2026
+**Date**: May 16, 2026 (revised May 19, 2026)
 **Subject**: Companion technical note to the (4, 48) Grassmannian frame packing submission to Game of Sloanes
 **Engine**: Rasputin (quad-precision)
 **Contact**: tretoef@gmail.com
@@ -11,7 +11,7 @@
 
 ## Abstract
 
-We report a Grassmannian frame packing in complex projective space ℂP³ with N = 48 vectors achieving coherence μ = 0.643425504760055, which improves upon the previous best published packing for cell (4, 48) hlc (Cohn, Game of Sloanes catalog, μ = 0.643427715576853) by 2.21 × 10⁻⁶ in absolute coherence value. The improvement satisfies the Game of Sloanes 8th-decimal-place acceptance criterion by 22 units in the minimisation direction (round-8: `0.64342550` versus `0.64342772`). Beyond reporting the improved packing, this note documents a numerical investigation that we interpret as *suggesting* the submission may lie at a local floor of the basin in which the optimisation was conducted. We phrase this as an interpretation, not an established fact: we do not have a proof that the local floor of the basin has been reached, and we do not claim such a proof. The numerical reproducibility of the reported coherence has been independently verified by five distinct verification kernels at IEEE-754 double precision and by an additional audit at 50 decimal digits across algorithmically distinct arithmetic procedures, with internal disagreement at the level of input-precision propagation. The cumulative evidence — including multi-seed convergence to the same 15th decimal across eight independent initialisations, a multi-paradigm portfolio with no method producing further descent, trust-region radial expansion refutation across 88 attempts at radii spanning five orders of magnitude, targeted-vector perturbation refutation across a comparable number of attempts, and 150 cold-start enumeration with no seed producing a deeper packing — is consistent with the working hypothesis that the basin floor has been reached at machine-quantum precision. **No claim of global optimality is made for the cell (4, 48), and we explicitly leave that question open. No claim that this floor is even the proven local floor of the basin is made either — only that the accumulated evidence is compatible with that interpretation.**
+We report a Grassmannian frame packing in complex projective space ℂP³ with N = 48 vectors achieving coherence μ = 0.643425504750473, which improves upon the previous best published packing for cell (4, 48) hlc (Cohn, Game of Sloanes catalog, μ = 0.643427715576853) by 2.21 × 10⁻⁶ in absolute coherence value. The improvement satisfies the Game of Sloanes 8th-decimal-place acceptance criterion by 222 units in the minimisation direction (round-8: `0.64342550` versus `0.64342772`). Beyond reporting the improved packing, this note documents a numerical investigation that we interpret as *suggesting* the submission may lie at a local floor of the basin in which the optimisation was conducted. We phrase this as an interpretation, not an established fact: we do not have a proof that the local floor of the basin has been reached, and we do not claim such a proof. The numerical reproducibility of the reported coherence has been independently verified by five distinct verification kernels at IEEE-754 double precision and by an additional audit at 50 decimal digits across algorithmically distinct arithmetic procedures, with zero ULP spread across binary64 kernels. The cumulative evidence — including multi-seed convergence to the same 15th decimal across eight independent initialisations, a multi-paradigm portfolio with no method producing further descent, trust-region radial expansion refutation across 88 attempts at radii spanning five orders of magnitude, targeted-vector perturbation refutation across a comparable number of attempts, and 150 cold-start enumeration with no seed producing a deeper packing — is consistent with the working hypothesis that the basin floor has been reached at machine-quantum precision. **No claim of global optimality is made for the cell (4, 48), and we explicitly leave that question open. No claim that this floor is even the proven local floor of the basin is made either — only that the accumulated evidence is compatible with that interpretation.**
 
 ---
 
@@ -25,7 +25,7 @@ For the cell (d = 4, N = 48), the Game of Sloanes catalog (Jasper, King, Mixon; 
 
 This note documents:
 
-1. A new packing achieving μ = 0.643425504760055, reducing the previously published value by 2.21 × 10⁻⁶ and improving the eighth decimal place by 22 units (Section 2).
+1. A new packing achieving μ = 0.643425504750473, reducing the previously published value by 2.21 × 10⁻⁶ and improving the eighth decimal place by 222 units (Section 2).
 2. Several lines of evidence consistent with the hypothesis that the new packing sits at the floor of the basin in which it was obtained (Section 3).
 3. The breadth of the optimisation portfolio applied within this basin, described at the level of paradigm families (Section 4).
 4. Numerical reproducibility evidence across five independent arithmetic kernels at 50-decimal-digit reference precision (Section 5).
@@ -37,21 +37,23 @@ We do not claim global optimality. The exploration is local to one basin of the 
 
 ## 2. The new packing
 
-The packing is provided in the file `4x48_record1.txt` (located alongside this note) in the Game of Sloanes layout: 384 real numbers, comprising 192 real components followed by 192 imaginary components for 48 complex 4-vectors. The coherence has been independently verified using five distinct numerical kernels at IEEE-754 binary64 and via an extended audit at 50 decimal digits across algorithmically distinct arithmetic procedures, with internal disagreement at the level of input-precision propagation (≈ 10⁻¹⁶).
+The packing is provided in the file `4x48_record1.txt` (located alongside this note) in the Game of Sloanes layout: 384 real numbers, comprising 192 real components followed by 192 imaginary components for 48 complex 4-vectors. The coherence has been independently verified using five distinct numerical kernels at IEEE-754 binary64 and via an extended audit at 50 decimal digits across algorithmically distinct arithmetic procedures, with zero ULP spread across binary64 kernels.
 
 The packing was produced by the **Rasputin** engine — a single-threaded C++ engine operating in quad-precision (128-bit) arithmetic throughout its inner loop, on a Mac M2 under 25% CPU throttling. The distinctive public feature of Rasputin relative to standard IEEE-754 double-precision implementations is that quad-precision arithmetic allows the engine to resolve descent below the threshold at which conventional double-precision engines saturate. For a cell whose holder configuration is structurally tight in the sense of admitting many simultaneously near-saturated pairs — as the Cohn holder for (4, 48) is, with 274 of 1128 pairs (24.29%) within 10⁻⁸ of the maximum at the holder configuration — quad-precision is the difference between stalling above the holder's coherence and being able to push to the floor of the basin in which the optimisation is conducted.
 
 | Quantity | Value |
 |:---|:---|
-| μ (proposed packing) | 0.643425504760055 |
+| μ (proposed packing) | 0.643425504750473 |
 | μ (prior holder, Cohn) | 0.643427715576853 |
 | Δμ (proposed − holder) | −2.21 × 10⁻⁶ |
 | Eight-decimal rounded value (proposed) | 0.64342550 |
 | Eight-decimal rounded value (holder) | 0.64342772 |
+| Units at 8th decimal (proposed beats holder) | 222 |
 | Unit-norm deviation across all 48 vectors | ≤ 2.21 × 10⁻¹¹ |
 | Saturated-pair fraction (within 10⁻⁸ of μ) | 274 / 1128 (24.29%) |
-| Cushion below the 8-decimal-rounding boundary 0.643425505 | 4.92 × 10⁻¹⁰ |
-| Worst pair (stable across 5 kernels) | (1, 24) |
+| Cushion to 8-dec. upper boundary 0.643425505 | 2.4953 × 10⁻¹⁰ |
+| Cushion to 8-dec. lower boundary 0.643425495 | 9.7505 × 10⁻⁹ |
+| Worst pair (stable across 5 kernels) | (1, 42) |
 
 The saturated-pair fraction is consistent with that of the Cohn holder under the same verification kernel and tolerance, which is the first structural indication that both packings may occupy the same critical basin. Section 3 documents four further lines of evidence consistent with that interpretation.
 
@@ -67,7 +69,7 @@ The submitted packing was reached as the convergent endpoint of eight independen
 
 ### 3.2 Stable worst-pair structure
 
-All five verification kernels report the same worst pair `(1, 24)` for the submission, with the coherence value reproduced to within one unit in the last place of binary64. This is in contrast to the (3, 14) submission in our companion folder, where the five kernels report five different argmax pairs and we interpret that observation as evidence of a degenerate basin floor with a small discrete family of critical points at the same μ value. We interpret the stability of the (1, 24) pair across kernels in the (4, 48) submission as evidence that the basin floor for cell (4, 48) supports a non-degenerate critical structure with a single unambiguous maximum-coherence pair, rather than the degenerate family of equivalent critical points seen in cell (3, 14). As above, this is interpretive.
+All five verification kernels report the same worst pair `(1, 42)` for the submission, with the coherence value reproduced byte-exact in binary64. This is in contrast to the (3, 14) submission in our companion folder, where the five kernels report five different argmax pairs and we interpret that observation as evidence of a degenerate basin floor with a small discrete family of critical points at the same μ value. We interpret the stability of the (1, 42) pair across kernels in the (4, 48) submission as evidence that the basin floor for cell (4, 48) supports a non-degenerate critical structure with a single unambiguous maximum-coherence pair, rather than the degenerate family of equivalent critical points seen in cell (3, 14). As above, this is interpretive.
 
 ### 3.3 Trust-region radial expansion refutation
 
@@ -105,7 +107,7 @@ The paradigm families covered include:
 
 Hyperparameter schedules, step-size tuning, warmstart chain ordering, the specific sequence of refinement moves, and the per-paradigm convergence diagnostics are deliberately not reproduced here. The high-level description is at the level expected of a research preprint: enough for a peer to understand the paradigm coverage, not a turnkey reproduction of every method.
 
-**The relevant empirical fact is that, across this portfolio, no paradigm produced descent below μ = 0.643425504760055 in the basin where the submission was obtained.** The descent was pursued with intent across this Saturday's optimisation session, and the value reported in this note was the deepest the available paradigms could reach. We interpret this as evidence consistent with the basin-floor hypothesis, while noting that the absence of descent under our specific portfolio does not constitute a proof that no other paradigm could descend further.
+**The relevant empirical fact is that, across this portfolio, no paradigm produced descent below μ = 0.643425504750473 in the basin where the submission was obtained.** The descent was pursued with intent across this Saturday's optimisation session, and the value reported in this note was the deepest the available paradigms could reach. We interpret this as evidence consistent with the basin-floor hypothesis, while noting that the absence of descent under our specific portfolio does not constitute a proof that no other paradigm could descend further.
 
 ---
 
@@ -119,14 +121,14 @@ The reported coherence has been independently audited across five algorithmicall
 4. mpmath at 50 decimal digits.
 5. Python `decimal` at 40 decimal digits, separated real/imaginary parts.
 
-All five report the same coherence value to within one unit in the last place of binary64 (`2.22 × 10⁻¹⁶`). The mpmath reference at 50 decimal digits is:
+All five report the same coherence value with zero ULP spread across the binary64 kernels (K1, K2, K3) and agreement with arbitrary-precision kernels (K4, K5) through the 16th significant digit. The mpmath reference at 50 decimal digits is:
 
 ```
-μ_submission = 0.643425504760055106…
-μ_holder     = 0.643427715576853032…
+μ_submission = 0.64342550475047294487215211018782112107460104494113…
+μ_holder     = 0.64342771557685303234…
 ```
 
-All five kernels also report the **same** worst pair `(1, 24)` for the submission — a structural property of the basin floor in cell (4, 48) that contrasts with the worst-pair migration observed in the apparent basin floor of cell (3, 14) (see [`../cell_3x14/Paper_3x14_basin_floor.md`](../cell_3x14/Paper_3x14_basin_floor.md) §3.3 for the complementary observation in that cell).
+All five kernels also report the **same** worst pair `(1, 42)` for the submission — a structural property of the basin floor in cell (4, 48) that contrasts with the worst-pair migration observed in the apparent basin floor of cell (3, 14) (see [`../cell_3x14/Paper_3x14_basin_floor.md`](../cell_3x14/Paper_3x14_basin_floor.md) §3.3 for the complementary observation in that cell).
 
 ---
 
@@ -145,7 +147,7 @@ is consistent with — though does not prove — the interpretation that a local
 
 **We do not claim that this floor is the global minimum for the cell (4, 48).** The 8.65% gap to the Levenshtein-2 lower bound 0.5877538100 is mathematically large enough to admit the existence of deeper basins reachable via algebraic seeds, structured constructions, or paradigms not yet considered in this work. Candidate algebraic constructions for this cell include Hoggar-type equiangular tight frame embeddings, mutually unbiased basis (MUB) embeddings, and cyclotomic-projection constructions — none of which were applied in the present work, and any of which could in principle access basins not reachable via continuous deformation from the cold-start manifold.
 
-**We do not claim that this floor is even the proven local floor of the basin we explored.** All five lines of evidence above are interpretive. A future result that descended below μ = 0.643425504760055 in this basin would not contradict any fact asserted in this note; it would refine the interpretation we have offered. We have made every effort to phrase the basin-floor claim as a hypothesis consistent with the evidence we have, not as a proof.
+**We do not claim that this floor is even the proven local floor of the basin we explored.** All five lines of evidence above are interpretive. A future result that descended below μ = 0.643425504750473 in this basin would not contradict any fact asserted in this note; it would refine the interpretation we have offered. We have made every effort to phrase the basin-floor claim as a hypothesis consistent with the evidence we have, not as a proof.
 
 The author records openly that the descent was pursued further than the filing margin would have required; the author would have preferred to deepen the packing further before filing, and the optimisation portfolio documented in §4 was exhausted against this basin before this value was settled. Even with the cumulative evidence above, the submission opens the cell rather than closes it. **The submission is filed because the margin is real, reproducible at the eighth decimal place across five independent verification kernels, and consistent with the basin-floor hypothesis. The records stand; the cell remains open.**
 
@@ -173,4 +175,4 @@ The author records openly that the descent was pursued further than the filing m
 
 ---
 
-*Last updated: 2026-05-18.*
+*Last updated: 2026-05-19 (revised).*
