@@ -14,26 +14,26 @@
 
 | Quantity | Value |
 |:---|:---|
-| **Submitted coherence μ** | **`0.643425504760055`** |
+| **Submitted coherence μ** | **`0.643425504750473`** |
 | **Cohn (catalog) holder coherence μ** | **`0.643427715576853`** |
 | **Raw gap Δμ** | **`−2.21 × 10⁻⁶`** |
 | **Submitted round-8** | **`0.64342550`** |
 | **Cohn holder round-8** | **`0.64342772`** |
-| **Game of Sloanes rule (≥ 8th decimal)** | **satisfied** (22 units at the 8th decimal, in the minimisation direction) |
+| **Game of Sloanes rule (≥ 8th decimal)** | **satisfied** (222 units at the 8th decimal, in the minimisation direction) |
 | **Engine** | **Rasputin** (quad-precision) |
-| **Worst pair (stable across 5 kernels)** | **(1, 24)** |
+| **Worst pair (stable across 5 kernels)** | **(1, 42)** |
 | Welch lower bound for (4, 48) | `0.4837794468` |
 | Levenshtein-2 lower bound for (4, 48) | `0.5877538100` |
-| Cushion below the 8-decimal rounding boundary `0.643425505` | `4.92 × 10⁻¹⁰` |
-| Safety factor (cushion / worst-case kernel error ~10⁻¹⁴) | ~49,000× |
+| Cushion to 8-decimal upper boundary `0.643425505` | `2.4953 × 10⁻¹⁰` |
+| Cushion to 8-decimal lower boundary `0.643425495` | `9.7505 × 10⁻⁹` |
 | Saturated-pair fraction at 10⁻⁸ tolerance | 274 / 1128 (24.29%) |
 | Unit-norm deviation across all 48 vectors | `2.21 × 10⁻¹¹` (well within unit-norm tolerance) |
 | Number of floats in `4x48_record1.txt` | 384 = 2 · 4 · 48 |
 | File format | Game of Sloanes standard (192 real components, then 192 imaginary) |
 
-The submission improves the Cohn (catalog) holder by an absolute margin of `2.21 × 10⁻⁶` and by 22 units at the eighth decimal place (round-8 `0.64342550` versus `0.64342772`). The submission satisfies the Game of Sloanes acceptance rule for cell (4, 48) by a comfortable margin. The improvement is reported with the explicit basin-floor caveat documented in [`Paper_4x48.md`](Paper_4x48.md): the submission appears to occupy a critical basin whose floor may have been reached at machine-quantum precision. We frame this as a working hypothesis consistent with the accumulated evidence, not as an established fact. **No claim of global optimality is made for the cell, and no claim of having proven the basin's local floor is made either.**
+The submission improves the Cohn (catalog) holder by an absolute margin of `2.21 × 10⁻⁶` and by 222 units at the eighth decimal place (round-8 `0.64342550` versus `0.64342772`). The submission satisfies the Game of Sloanes acceptance rule for cell (4, 48) by a comfortable margin. The improvement is reported with the explicit basin-floor caveat documented in [`Paper_4x48.md`](Paper_4x48.md): the submission appears to occupy a critical basin whose floor may have been reached at machine-quantum precision. We frame this as a working hypothesis consistent with the accumulated evidence, not as an established fact. **No claim of global optimality is made for the cell, and no claim of having proven the basin's local floor is made either.**
 
-The cushion of `4.92 × 10⁻¹⁰` below the 8-decimal rounding boundary `0.643425505` is approximately 49,000 times larger than the worst-case error of any reasonable IEEE-754 double-precision kernel. Any independent recomputation of the submitted packing using a different BLAS, summation order, or hardware would have to introduce an error of order `10⁻⁹` or larger to roll the eighth decimal back to `0.64342551` — well above what the floating-point arithmetic of this problem can possibly produce.
+The submitted μ sits inside the round-8 band `[0.643425495, 0.643425505]` with cushion `9.7505 × 10⁻⁹` to the lower band edge and cushion `2.4953 × 10⁻¹⁰` to the upper band edge. Any independent recomputation of the submitted packing using a different BLAS, summation order, or hardware would have to introduce an error of order `10⁻¹⁰` or larger near the upper band edge to roll the eighth decimal — well above what the floating-point arithmetic of this problem can possibly produce (five-kernel ratification reports zero ULP spread in binary64).
 
 ---
 
@@ -45,22 +45,22 @@ The improvement reported here is comfortably above the Game of Sloanes acceptanc
 
 ## Five-kernel ratification (submission)
 
-The submitted packing in `4x48_record1.txt` has been ratified by five algorithmically distinct verification kernels, in two programming languages, using four different numerical libraries (and one path with no library at all). All five report identical coherence to the precision available; the within-kernel spread is at the level of one unit in the last place of binary64 (≈ `2 × 10⁻¹⁶`), which is the floor of double-precision arithmetic itself.
+The submitted packing in `4x48_record1.txt` has been ratified by five algorithmically distinct verification kernels, in two programming languages, using four different numerical libraries (and one path with no library at all). All five report identical coherence to the precision available; the spread across binary64 kernels is `0` ULP (byte-exact agreement at the floor of double precision).
 
 | Kernel | Implementation | μ (full precision) | round-8 | worst pair |
 |:---|:---|:---|:---|:---:|
-| K1 | NumPy `conj() @ T` with BLAS matmul | `0.6434255047600553` | `0.64342550` | (1, 24) |
-| K2 | Pure-Python double loop, no external library, manual conjugate | `0.6434255047600552` | `0.64342550` | (1, 24) |
-| K3 | `numpy.vdot` per pair | `0.6434255047600553` | `0.64342550` | (1, 24) |
-| K4 | `mpmath` at 50 decimal digits | `0.6434255047600551` | `0.64342550` | (1, 24) |
-| K5 | Python `decimal` at 40 decimal digits, separated real/imaginary | `0.6434255047600551` | `0.64342550` | (1, 24) |
+| K1 | NumPy `conj() @ T` with BLAS matmul | `0.6434255047504730` | `0.64342550` | (1, 42) |
+| K2 | Pure-Python double loop, no external library, manual conjugate | `0.6434255047504730` | `0.64342550` | (1, 42) |
+| K3 | `numpy.vdot` per pair | `0.6434255047504730` | `0.64342550` | (1, 42) |
+| K4 | `mpmath` at 50 decimal digits | `0.6434255047504729` | `0.64342550` | (1, 42) |
+| K5 | Python `decimal` at 40 decimal digits, separated real/imaginary | `0.6434255047504729` | `0.64342550` | (1, 42) |
 
-mpmath reference at 50 decimal digits: `0.643425504760055106…`
-Within-kernel spread: `2.22 × 10⁻¹⁶` (≤ 1 ULP, agreement at the floor of binary64 precision).
+mpmath reference at 50 decimal digits: `0.64342550475047294487215211018782112107460104494113…`
+Within-kernel spread (binary64 kernels K1, K2, K3): `0` ULP (byte-exact agreement at the floor of binary64 precision). Arbitrary-precision kernels K4 (mpmath) and K5 (decimal) agree with the binary64 kernels through the 16th significant digit.
 
 ### A structural observation about the worst pair
 
-All five kernels report the **same** worst pair `(1, 24)` for the submission. This is in contrast to the (3, 14) submission in our companion folder, where the five kernels report five different argmax pairs at the same μ value to within one unit in the last place of binary64 — a structural difference that we interpret (in [`Paper_4x48.md`](Paper_4x48.md) §3) as evidence that the basin floor for cell (4, 48) supports a non-degenerate critical structure with a single unambiguous maximum-coherence pair, rather than the degenerate family of equivalent critical points observed at the apparent basin floor of cell (3, 14).
+All five kernels report the **same** worst pair `(1, 42)` for the submission. This is in contrast to the (3, 14) submission in our companion folder, where the five kernels report five different argmax pairs at the same μ value to within one unit in the last place of binary64 — a structural difference that we interpret (in [`Paper_4x48.md`](Paper_4x48.md) §3) as evidence that the basin floor for cell (4, 48) supports a non-degenerate critical structure with a single unambiguous maximum-coherence pair, rather than the degenerate family of equivalent critical points observed at the apparent basin floor of cell (3, 14).
 
 This is an interpretation consistent with the kernel observations, not a proven structural claim.
 
@@ -91,7 +91,7 @@ Within-kernel spread: `≤ 2 ULP binary64`.
 
 ## Bounds comparison
 
-| Bound | Value | Gap to submission μ = 0.643425504760055 |
+| Bound | Value | Gap to submission μ = 0.643425504750473 |
 |:---|:---|:---|
 | Welch (4, 48) | `0.4837794468` | `+0.1596` (submission well above Welch) |
 | Levenshtein-2 (4, 48) | `0.5877538100` | `+0.0557` (submission well above Levenshtein-2) |
@@ -109,10 +109,9 @@ The Levenshtein-2 bound at `0.5877538100` is approximately 8.65% below the submi
 | File layout (Game of Sloanes standard) | 192 reals then 192 imaginaries ✓ |
 | All 48 vectors unit-norm | max ∣‖v_i‖ − 1∣ ≤ `2.21 × 10⁻¹¹` ✓ (well within unit-norm tolerance for IEEE-754 reproducibility) |
 | Coherence definition used | μ = max_{i<j} ∣⟨v_i, v_j⟩∣ (Hermitian inner product) ✓ |
-| Independent Python verifier reproduction | μ = `0.643425504760055` ✓ |
-| Worst pair (stable across 5 kernels) | (1, 24) ✓ |
+| Independent Python verifier reproduction | μ = `0.643425504750473` ✓ |
+| Worst pair (stable across 5 kernels) | (1, 42) ✓ |
 | Saturated-pair fraction at 10⁻⁸ tolerance | 274 / 1128 = 24.29% ✓ |
-| MD5 of `4x48_record1.txt` | `abe38949635f3cdb6a31f856a740a284` |
 
 ---
 
@@ -130,4 +129,4 @@ The Mac runtime log for the optimisation pass that produced `4x48_record1.txt` i
 
 ---
 
-*Last updated: 2026-05-18.*
+*Last updated: 2026-05-19 (revised).*
