@@ -1,6 +1,6 @@
 # sloane-coherence-records — cell (4, 48) hlc
 
-> **One sub-Cohn packing in the Grassmannian coherence cell (d=4, n=48) — May 16, 2026**
+> **One sub-Cohn packing in the Grassmannian coherence cell (d=4, n=48) — May 16, 2026 (revised May 19, 2026)**
 >
 > Independent researcher, Madrid · Mac M2 single-thread · Rasputin engine.
 
@@ -10,14 +10,14 @@ This folder is a self-contained sub-project of the parent repository [`sloane-co
 
 ## At a glance
 
-On May 16, 2026, a sub-Cohn packing was obtained for the Game of Sloanes cell `(d=4, n=48)` hlc using the **Rasputin** quad-precision engine, in collaboration with the AI assistant Claude (Anthropic). The packing improves upon the standing Cohn catalog holder by 2.21 × 10⁻⁶ in absolute coherence value and by 22 units at the eighth decimal place in the minimisation direction (round-8: `0.64342550` versus holder round-8 `0.64342772`), satisfying the Game of Sloanes 8th-decimal-place acceptance rule by a comfortable margin.
+On May 16, 2026, a sub-Cohn packing was obtained for the Game of Sloanes cell `(d=4, n=48)` hlc using the **Rasputin** quad-precision engine, in collaboration with the AI assistant Claude (Anthropic). The packing improves upon the standing Cohn catalog holder by 2.21 × 10⁻⁶ in absolute coherence value and by 222 units at the eighth decimal place in the minimisation direction (round-8: `0.64342550` versus holder round-8 `0.64342772`), satisfying the Game of Sloanes 8th-decimal-place acceptance rule by a comfortable margin.
 
 | Holder | Date | μ (coherence) | Round-8 | Worst pair | Gap vs. Cohn |
 |:---|:---|:---|:---|:---:|:---|
 | Henry Cohn (Game of Sloanes catalog, hlc) | ~2010–2024 | `0.643427715576853` | `0.64342772` | — | — (baseline) |
-| **Amichis Luengo — submission** | **2026-05-16 CEST** | **`0.643425504760055`** | **`0.64342550`** | **(1, 24)** | **−2.21 × 10⁻⁶ (22 units at the 8th decimal)** |
+| **Amichis Luengo — submission** | **2026-05-16 CEST** | **`0.643425504750473`** | **`0.64342550`** | **(1, 42)** | **−2.21 × 10⁻⁶ (222 units at the 8th decimal)** |
 
-The submission has been ratified byte-exact by **five independent code paths** in two programming languages, using four different numerical libraries (and one path with no library at all). The coherence value is reproduced to within one unit in the last place of binary64 (≈ 2 × 10⁻¹⁶) across all five kernels, and all five kernels report the **same** worst pair `(1, 24)` — a structural property of this basin that contrasts with the worst-pair migration observed in cell (3, 14) and is documented further in [`Paper_4x48.md`](Paper_4x48.md).
+The submission has been ratified byte-exact by **five independent code paths** in two programming languages, using four different numerical libraries (and one path with no library at all). The coherence value is reproduced with zero ULP spread across binary64 kernels, and all five kernels report the **same** worst pair `(1, 42)` — a structural property of this basin that contrasts with the worst-pair migration observed in cell (3, 14) and is documented further in [`Paper_4x48.md`](Paper_4x48.md).
 
 ---
 
@@ -35,7 +35,7 @@ A fuller statement of the basin-floor reasoning, the portfolio breadth, and the 
 
 Grassmannian frame packings in the cell `(d=4, n=48)` have the same fundamental applications as the larger cells of the catalog — compressed sensing, MIMO precoding, CDMA wireless codes, quantum state tomography (see the parent repository's [`README.md`](../README.md) for the application context). In contrast to the (3, 14) submission, which improves the holder by a microscopic absolute margin and is offered primarily as a basin-floor benchmark, the (4, 48) submission improves the holder by `2.21 × 10⁻⁶` in absolute coherence — a margin large enough to be visible in application benchmarks for this cell, particularly for compressed-sensing recovery bounds where the coherence appears squared in the dominant terms.
 
-The Cohn holder for `(4, 48)` has been the standing record for a number of years and remains the only published baseline for the cell. This submission improves on it by 22 units at the eighth decimal place, with all the verification discipline described below.
+The Cohn holder for `(4, 48)` has been the standing record for a number of years and remains the only published baseline for the cell. This submission improves on it by 222 units at the eighth decimal place, with all the verification discipline described below.
 
 ---
 
@@ -77,15 +77,15 @@ Expected output:
 Parsed 48 vectors of dimension 4 (C^4).
 Unit-norm check: PASSED (within 1e-10).
 Welch lower bound (d=4, n=48): 0.4837794468
-Coherence mu(Phi) = 0.643425504760055
-Worst pair: vectors (1, 24) with |<v_1, v_24>| = 0.643425504760055
+Coherence mu(Phi) = 0.643425504750473
+Worst pair: vectors (1, 42) with |<v_1, v_42>| = 0.643425504750473
 ```
 
 The verifier uses no project-internal code paths. It loads the packing as raw text, reconstructs the Gram matrix using its own routines, and computes the coherence. The submission reproduces byte-exact.
 
 A reader who wishes to recompute the Cohn (catalog) holder for direct comparison can download the holder packing from the Game of Sloanes catalog (Jasper, King, Mixon; https://github.com/gnikylime/GameofSloanes) and run the same verifier on it; expected coherence for the holder is `0.643427715576853` with a stable worst pair across kernels.
 
-**Note on the worst pair.** In contrast to the cell (3, 14) submission in our companion folder, where the worst-pair indices vary across independent verification kernels and we interpret that as evidence of a degenerate critical structure at the basin floor, the (4, 48) submission exhibits a **stable** worst pair `(1, 24)` across all five kernels. The basin floor for cell (4, 48), under the working hypothesis stated above, appears to support a single critical structure with an unambiguous maximum-coherence pair rather than a degenerate family of pairs at the same μ value. This is documented further in [`Paper_4x48.md`](Paper_4x48.md) §3.
+**Note on the worst pair.** In contrast to the cell (3, 14) submission in our companion folder, where the worst-pair indices vary across independent verification kernels and we interpret that as evidence of a degenerate critical structure at the basin floor, the (4, 48) submission exhibits a **stable** worst pair `(1, 42)` across all five kernels. The basin floor for cell (4, 48), under the working hypothesis stated above, appears to support a single critical structure with an unambiguous maximum-coherence pair rather than a degenerate family of pairs at the same μ value. This is documented further in [`Paper_4x48.md`](Paper_4x48.md) §3.
 
 ---
 
@@ -130,4 +130,4 @@ The (4, 48) submission was obtained on May 16, 2026, four days after the four-re
 
 ---
 
-*Last updated: 2026-05-18.*
+*Last updated: 2026-05-19 (revised).*
