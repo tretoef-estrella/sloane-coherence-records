@@ -10,7 +10,7 @@
 
 On May 12, 2026, the longstanding world record for the minimum-coherence packing of 64 unit vectors in complex 4-dimensional space (held by Henry Cohn et al.) was beaten **twice in a single day** using a novel optimisation paradigm developed by a self-taught researcher running on a personal Mac M2 laptop, in collaboration with the AI assistant Claude (Anthropic). Each of the first two record runs took approximately 5 minutes of wall time on a single CPU thread throttled to 25%. Four days later, on May 16, 2026, a second optimisation engine produced two further records in the same cell, and a fourth optimisation engine produced a sub-Cohn packing in the adjacent cell (4, 48). On May 17, 2026, the same methodology — adapted to a third Game of Sloanes cell — produced a sub-Mixon packing for cell (3, 14).
 
-> **Status note (as of 2026-05-20).** The pull requests for all six packings have been submitted to the Game of Sloanes leaderboard at github.com/gnikylime/GameofSloanes but have not yet been merged. The current holders on the leaderboard remain Cohn (hlc) for cells (4, 64) and (4, 48), and Mixon (dgm) for cell (3, 14).
+> **Status note (as of 2026-05-20).** The pull requests for all three packings have been submitted to the Game of Sloanes leaderboard at github.com/gnikylime/GameofSloanes but have not yet been merged. The current holders on the leaderboard remain Cohn (hlc) for cells (4, 64) and (4, 48), and Mixon (dgm) for cell (3, 14).
 
 | Holder | Cell | Date | μ (coherence) | Worst pair | Gap vs. baseline | Engine |
 |:---|:---:|:---|:---|:---:|:---|:---|
